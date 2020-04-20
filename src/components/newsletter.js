@@ -14,7 +14,7 @@ export default class Newsletter extends Component {
   }
   render() {
     return (
-      <div className="section-subscribe wrap">
+      <div className="section-subscribe wrap" style={{ marginTop: "25px" }}>
         <div className="subscribe-wrap">
           <form data-members-form="subscribe" className="subscribe-form">
             <h3>Join our occasional newsletter</h3>

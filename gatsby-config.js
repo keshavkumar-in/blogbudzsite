@@ -34,6 +34,12 @@ module.exports = {
         accessToken: `6firBo1HKrBdw-pxCTnATrZ-m6-yGrSoSLnmX2EPqmA`,
       },
     },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `ghost-194`,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
