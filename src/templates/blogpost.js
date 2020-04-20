@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
 const BlogPost = ({ data }) => {
   const { title, content, featuredImage, tags } = data.contentfulBlogPost
   return (
@@ -37,6 +38,9 @@ export const pageQuery = graphql`
       featuredImage {
         file {
           url
+        }
+        fluid {
+          base64
         }
       }
       tags
