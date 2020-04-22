@@ -77,15 +77,18 @@ const BlogPost = ({ data }) => {
           </div>
         </div>
         <div class="section-post wrap">
-          <div class="post-wrap">{content.content}</div>
-          <div className="tags">
-            <strong>Tags: </strong>
-            {tags.map(tag => (
-              <span className="tag" key={tag}>
-                {tag}
-              </span>
-            ))}
+          <div class="post-wrap">
+            {content.content}
+            <div className="tags">
+              <strong>Tags: </strong>
+              {tags.map(tag => (
+                <span className="tag" key={tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
+
           <div class="section-post-authors post-authors flex">
             <div class="author-label">
               <span>This post was a collaboration between</span>

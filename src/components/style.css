@@ -115,6 +115,19 @@
     --gradient-gray-end: #32343a;
   }
 }
+.tags {
+  margin-bottom: 24px;
+  margin-top: 24px;
+}
+.tags span.tag {
+  font-weight: bold;
+  margin-right: 8px;
+  background: cadetblue;
+  padding: 2px 12px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+}
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;

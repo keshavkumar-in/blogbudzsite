@@ -16,13 +16,20 @@ export default class Newsletter extends Component {
     return (
       <div className="section-subscribe wrap" style={{ marginTop: "25px" }}>
         <div className="subscribe-wrap">
-          <form data-members-form="subscribe" className="subscribe-form">
+          <form
+            data-members-form="subscribe"
+            className="subscribe-form"
+            data-netlify="true"
+            name="newsletter"
+          >
             <h3>Join our occasional newsletter</h3>
             <div id="ityped" className="ityped">
               <span className="ityped-wrap"></span>
             </div>
             <div className="form-group">
               <input
+                method="post"
+                action="#"
                 data-members-email
                 className="subscribe-email"
                 placeholder="Your email address"
