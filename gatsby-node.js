@@ -8,7 +8,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // we use the provided allContentfulBlogPost query to fetch the data from Contentful
   const result = await graphql(`
     {
-      postData: allContentfulBlogPost {
+      postData: allContentfulBlogPost(
+        filter: { node_locale: { eq: "en-US" } }
+      ) {
         edges {
           node {
             id
@@ -19,7 +21,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-      categoryGroup: allContentfulBlogPost {
+      categoryGroup: allContentfulBlogPost(
+        filter: { node_locale: { eq: "en-US" } }
+      ) {
         group(field: categories___name) {
           totalCount
           fieldValue

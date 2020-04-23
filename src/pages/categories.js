@@ -50,7 +50,10 @@ export default CategoryPage
 
 export const pageQuery = graphql`
   query {
-    allContentfulBlogPost(sort: { fields: updatedAt, order: ASC }) {
+    allContentfulBlogPost(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: updatedAt, order: ASC }
+    ) {
       group(field: categories___name, limit: 1) {
         totalCount
         fieldValue

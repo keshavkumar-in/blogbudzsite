@@ -67,6 +67,7 @@ export const pageQuery = graphql`
       sort: { fields: updatedAt, order: ASC }
       filter: { categories: { name: { eq: $category } } }
     ) {
+      totalCount
       edges {
         node {
           title

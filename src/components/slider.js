@@ -14,7 +14,11 @@ import Helmet from "react-helmet"
 const Slider = () => {
   const data = useStaticQuery(graphql`
     {
-      allContentfulBlogPost(limit: 3, sort: { fields: updatedAt, order: ASC }) {
+      allContentfulBlogPost(
+        filter: { node_locale: { eq: "en-US" } }
+        limit: 3
+        sort: { fields: updatedAt, order: ASC }
+      ) {
         edges {
           node {
             id
