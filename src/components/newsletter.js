@@ -22,6 +22,7 @@ export default class Newsletter extends Component {
             data-netlify="true"
             name="newsletter"
           >
+            <input type="hidden" name="form-name" value="contact" />
             <h3>Join our occasional newsletter</h3>
             <div id="ityped" className="ityped">
               <span className="ityped-wrap"></span>

@@ -3,21 +3,21 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Disqus, CommentCount } from "gatsby-plugin-disqus"
+import kebabCase from "lodash/kebabCase"
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ pageContext, data }) => {
   const {
     title,
     content,
     featuredImage,
     tags,
     updatedAt,
+    categories,
+    author,
   } = data.contentfulBlogPost
 
-  let disqusConfig = {
-    url:
-      "https://nurui.fueko.net/im-passionate-about-food-the-tradition-of-it-cooking-it-sharing-it/",
-    identifier: "ghost-194",
-  }
+  const { prev, next } = pageContext
+
   return (
     <Layout>
       <SEO title={title} />
@@ -49,7 +49,7 @@ const BlogPost = ({ data }) => {
               <h1 class="white">{title}</h1>
               <div class="item-meta white">
                 <span>by </span>
-                <a href="/author/sean/">Sean Hamilton</a>,{" "}
+                <a href={author.name}>{author.name}</a>,
                 <time datetime={updatedAt}>{updatedAt}</time>
                 <span class="reading-time">
                   <svg
@@ -70,7 +70,7 @@ const BlogPost = ({ data }) => {
                       id="Line"
                     ></path>
                   </svg>
-                  <CommentCount config={disqusConfig} placeholder={"..."} />
+                  {/* <CommentCount config={disqusConfig} placeholder={"..."} /> */}
                 </span>
               </div>
             </div>
@@ -91,26 +91,21 @@ const BlogPost = ({ data }) => {
 
           <div class="section-post-authors post-authors flex">
             <div class="author-label">
-              <span>This post was a collaboration between</span>
+              <span>Author</span>
             </div>
             <div class="author-wrap flex">
               <a href="/author/sean/" class="item-link-overlay"></a>
               <div
                 class="author-profile-image"
                 style={{
-                  backgroundImage:
-                    "url(https://nurui.fueko.net/content/images/2018/12/alfonso-castro-130696-unsplash.jpg)",
+                  backgroundImage: `url(${featuredImage.file.url})`,
                 }}
               ></div>
               <div class="author-content">
                 <h4 class="is-bio no-cover-image">
-                  <a href="/author/sean/">Sean Hamilton</a>
+                  <a href={author.name}>{author.name}</a>
                 </h4>
-                <p>
-                  Respondeat totidem verbis. Utinam quidem dicerent alium alio
-                  beatiorem, Iam ruinas videres. Quamquam ab iis philosophiam et
-                  omnes ingenuas disciplinas habemus.
-                </p>
+                <p>{author.intro.intro}</p>
               </div>
             </div>
           </div>
@@ -165,29 +160,33 @@ const BlogPost = ({ data }) => {
       </article>
       <aside class="section-prev-next">
         <div class="prev-next-wrap">
-          <Link
-            to="/blogposts"
-            className="prev-post post
+          {prev && (
+            <Link
+              to={prev.slug}
+              className="prev-post post
             tag-story tag-hash-orange tag-hash-post-orange tag-hash-cta-violet
             no-image"
-          >
-            <section class="prev-next-title">
-              <h5>All Tags</h5>
-              <h3>Click to see all Blog Posts</h3>
-            </section>
-          </Link>
-          <Link
-            to="/"
-            className="next-post post tag-people tag-journey no-image"
-          >
-            <section className="prev-next-title">
-              <h5>Home</h5>
-              <h3>Architecture belongs to culture, not to civilization</h3>
-            </section>
-          </Link>
+            >
+              <section class="prev-next-title">
+                <h5>Previous Post</h5>
+                <h3>{prev.title}</h3>
+              </section>
+            </Link>
+          )}
+          {next && (
+            <Link
+              to={next.slug}
+              className="next-post post tag-people tag-journey no-image"
+            >
+              <section className="prev-next-title">
+                <h5>Next Post</h5>
+                <h3>{next.title}</h3>
+              </section>
+            </Link>
+          )}
         </div>
       </aside>
-      <Disqus config={disqusConfig} />
+      {/* <Disqus config={disqusConfig} /> */}
     </Layout>
   )
 }
@@ -199,6 +198,20 @@ export const pageQuery = graphql`
       slug
       content {
         content
+      }
+      categories {
+        name
+      }
+      author {
+        name
+        intro {
+          intro
+        }
+        image {
+          file {
+            url
+          }
+        }
       }
       featuredImage {
         file {
