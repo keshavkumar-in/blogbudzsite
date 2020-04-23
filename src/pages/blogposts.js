@@ -39,6 +39,9 @@ export const query = graphql`
           content {
             content
           }
+          categories {
+            name
+          }
           featuredImage {
             file {
               url
