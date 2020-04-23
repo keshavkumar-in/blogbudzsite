@@ -1,5 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import kebabCase from "lodash/kebabCase"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 const BlogPosts = ({ data }) => {
@@ -11,7 +13,7 @@ const BlogPosts = ({ data }) => {
       <div className="blogposts">
         {blogPosts.map(({ node: post }) => (
           <div key={post.id}>
-            <Link to={`/${post.categories.name}/${post.slug}`}>
+            <Link to={`/${kebabCase(post.categories.name)}/${post.slug}/`}>
               {post.title}
             </Link>
           </div>
