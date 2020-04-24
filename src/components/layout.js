@@ -21,8 +21,8 @@ const Layout = ({ children }) => {
 
   return (
     <React.Fragment>
-      <div class="global-wrap">
-        <div class="section-content-wrap">
+      <div className="global-wrap">
+        <div className="section-content-wrap">
           <Header siteTitle={data.site.siteMetadata.title} />
           <main>{children}</main>
           <Newsletter />

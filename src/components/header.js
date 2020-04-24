@@ -17,7 +17,7 @@ export default class Header extends Component {
           <div className="header-nav">
             <nav className="nav-wrap">
               <label
-                for="toggle"
+                htmlFor="toggle"
                 className="nav-label hamburger hamburger-minus"
               >
                 <span className="hamburger-box">
@@ -141,7 +141,9 @@ export default class Header extends Component {
               </ul>
             </nav>
           </div>
-          <div class="blog-description flex">Thoughts, stories and ideas</div>
+          <div className="blog-description flex">
+            Thoughts, stories and ideas
+          </div>
         </header>
       </div>
     )
