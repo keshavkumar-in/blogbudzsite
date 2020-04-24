@@ -20,7 +20,7 @@ const CategoryPage = ({ data }) => {
               <Link to={`/categories/${kebabCase(category.fieldValue)}/`}>
                 {category.fieldValue} ({category.totalCount})
               </Link>
-              {/* <img src={category.featuredImage.file.url} alt="..." /> */}
+              {/* <img src={category.nodes.featuredImage.file.url} alt="..." /> */}
             </li>
           ))}
         </ul>
@@ -50,10 +50,7 @@ export default CategoryPage
 
 export const pageQuery = graphql`
   query {
-    allContentfulBlogPost(
-      filter: { node_locale: { eq: "en-US" } }
-      sort: { fields: updatedAt, order: ASC }
-    ) {
+    allContentfulBlogPost(sort: { fields: updatedAt, order: ASC }) {
       group(field: categories___name, limit: 1) {
         totalCount
         fieldValue

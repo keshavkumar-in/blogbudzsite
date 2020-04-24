@@ -8,23 +8,29 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // we use the provided allContentfulBlogPost query to fetch the data from Contentful
   const result = await graphql(`
     {
-      postData: allContentfulBlogPost(
-        filter: { node_locale: { eq: "en-US" } }
-      ) {
+      postData: allContentfulBlogPost {
         edges {
           node {
             id
             slug
+            title
             categories {
+              name
+            }
+            author {
               name
             }
           }
         }
       }
-      categoryGroup: allContentfulBlogPost(
-        filter: { node_locale: { eq: "en-US" } }
-      ) {
+      categoryGroup: allContentfulBlogPost {
         group(field: categories___name) {
+          totalCount
+          fieldValue
+        }
+      }
+      authorsGroup: allContentfulBlogPost {
+        group(field: author___name) {
           totalCount
           fieldValue
         }
@@ -42,6 +48,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const blogPostTemplate = path.resolve("./src/templates/blogpost.js")
   // const categoryPageTemplate = path.resolve("./src/templates/tags.js")
   const categoryPageTemplate = path.resolve("./src/templates/categories.js")
+  const authorPageTemplate = path.resolve("./src/templates/author.js")
+
   // Then for each result we create a page.
   posts.forEach((edge, index) => {
     const prev = index === 0 ? null : posts[index - 1].node
@@ -58,6 +66,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
+
   // Extract category data from query
   const category = result.data.categoryGroup.group
 
@@ -68,6 +77,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: categoryPageTemplate,
       context: {
         category: category.fieldValue,
+      },
+    })
+  })
+
+  // Extract author data from query
+  const authors = result.data.authorsGroup.group
+
+  // Make category pages
+  authors.forEach(author => {
+    createPage({
+      path: `/authors/${_.kebabCase(author.fieldValue)}/`,
+      component: authorPageTemplate,
+      context: {
+        author: author.fieldValue,
       },
     })
   })

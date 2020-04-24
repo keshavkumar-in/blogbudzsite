@@ -8,6 +8,7 @@ import kebabCase from "lodash/kebabCase"
 const BlogPost = ({ pageContext, data }) => {
   const {
     title,
+    slug,
     content,
     featuredImage,
     tags,
@@ -49,8 +50,10 @@ const BlogPost = ({ pageContext, data }) => {
               <h1 class="white">{title}</h1>
               <div class="item-meta white">
                 <span>by </span>
-                <a href={author.name}>{author.name}</a>,
-                <time datetime={updatedAt}>{updatedAt}</time>
+                <Link to={`/authors/${kebabCase(author.name)}/`}>
+                  {author.name}
+                </Link>
+                , <time datetime={updatedAt}>{updatedAt}</time>
                 <span class="reading-time">
                   <svg
                     role="img"
@@ -94,7 +97,10 @@ const BlogPost = ({ pageContext, data }) => {
               <span>Author</span>
             </div>
             <div class="author-wrap flex">
-              <a href="/author/sean/" class="item-link-overlay"></a>
+              <Link
+                to={`/authors/${kebabCase(author.name)}/`}
+                class="item-link-overlay"
+              ></Link>
               <div
                 class="author-profile-image"
                 style={{
@@ -162,7 +168,7 @@ const BlogPost = ({ pageContext, data }) => {
         <div class="prev-next-wrap">
           {prev && (
             <Link
-              to={prev.slug}
+              to={`/${kebabCase(prev.categories.name)}/${prev.slug}/`}
               className="prev-post post
             tag-story tag-hash-orange tag-hash-post-orange tag-hash-cta-violet
             no-image"
@@ -175,7 +181,7 @@ const BlogPost = ({ pageContext, data }) => {
           )}
           {next && (
             <Link
-              to={next.slug}
+              to={`/${kebabCase(next.categories.name)}/${next.slug}/`}
               className="next-post post tag-people tag-journey no-image"
             >
               <section className="prev-next-title">

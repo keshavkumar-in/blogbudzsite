@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 import Header from "./header"
 //import "./layout.css"
@@ -28,19 +29,16 @@ const Layout = ({ children }) => {
           <footer className="section-footer">
             <div className="footer-wrap wrap flex">
               <div className="footer-logo flex">
-                <a className="is-logo" href="/">
-                  <img src="/content/images/2018/12/nurui.svg" alt="Nurui" />
-                </a>
+                <Link className="is-logo" to="/">
+                  <img src="/content/images/2018/12/nurui.svg" alt="Wrixby" />
+                </Link>
               </div>
               <div className="footer-nav">
                 <ul className="nav-list">
                   <li className="nav-list-item">
-                    <a
-                      href="https://nurui.fueko.net/membership/"
-                      className="nav-link"
-                    >
+                    <Link to="/authors" className="nav-link">
                       Authors
-                    </a>
+                    </Link>
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">
@@ -66,7 +64,7 @@ const Layout = ({ children }) => {
                       href="https://nurui.fueko.net/contact/"
                       className="nav-link"
                     >
-                      Contact
+                      Privacy Policy
                     </a>
                     <span className="nav-dot"></span>
                   </li>

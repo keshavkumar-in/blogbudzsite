@@ -5,55 +5,70 @@ import PropTypes from "prop-types"
 export default class Header extends Component {
   render(siteTitle) {
     return (
-      <div class="section-header wrap">
-        <header class="header-wrap flex">
-          <div class="header-logo">
-            <h1 class="is-logo">
-              <a href="https://nurui.fueko.net">
+      <div className="section-header wrap">
+        <header className="header-wrap flex">
+          <div className="header-logo">
+            <h1 className="is-logo">
+              <Link to="/">
                 <img src="/content/images/2018/12/nurui.svg" alt="Wrixby" />
-              </a>
+              </Link>
             </h1>
           </div>
-          <div class="header-nav">
-            <nav class="nav-wrap">
-              <label for="toggle" class="nav-label hamburger hamburger-minus">
-                <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
+          <div className="header-nav">
+            <nav className="nav-wrap">
+              <label
+                for="toggle"
+                className="nav-label hamburger hamburger-minus"
+              >
+                <span className="hamburger-box">
+                  <span className="hamburger-inner"></span>
                 </span>
               </label>
-              <input type="checkbox" id="toggle" class="nav-toggle" />
-              <ul class="nav-list">
-                <li class="nav-list-item">
-                  <a href="https://nurui.fueko.net/" class="nav-link">
+              <input type="checkbox" id="toggle" className="nav-toggle" />
+              <ul className="nav-list">
+                <li className="nav-list-item">
+                  <Link to="/" className="nav-link">
                     Home
-                  </a>
-                  <span class="nav-dot nav-dot-current"></span>
+                  </Link>
+                  <span className="nav-dot nav-dot-current"></span>
                 </li>
-                <li class="nav-list-item">
-                  <a
-                    href="https://nurui.fueko.net/membership/"
-                    class="nav-link"
-                  >
-                    Membership
-                  </a>
-                  <span class="nav-dot"></span>
+                <li className="nav-list-item">
+                  <Link to="/categories/technology/" className="nav-link">
+                    Technology
+                  </Link>
+                  <span className="nav-dot"></span>
                 </li>
-                <li class="nav-list-item">
-                  <a href="https://nurui.fueko.net/features/" class="nav-link">
-                    Features
-                  </a>
-                  <span class="nav-dot"></span>
+                <li className="nav-list-item">
+                  <Link to="/categories/social-media/" className="nav-link">
+                    Social Media
+                  </Link>
+                  <span className="nav-dot"></span>
                 </li>
-                <li class="nav-list-item">
-                  <a
-                    href="https://nurui.fueko.net/style-guide/"
-                    class="nav-link"
-                  >
-                    Style Guide
-                  </a>
-                  <span class="nav-dot"></span>
+                <li className="nav-list-item">
+                  <Link to="/categories/business/" className="nav-link">
+                    Business
+                  </Link>
+                  <span className="nav-dot"></span>
                 </li>
-                <li class="nav-dots is-visible">
+                <li className="nav-list-item">
+                  <Link to="/categories/entertainment/" className="nav-link">
+                    Entertainment
+                  </Link>
+                  <span className="nav-dot"></span>
+                </li>
+                <li className="nav-list-item">
+                  <Link to="/categories/design/" className="nav-link">
+                    Design
+                  </Link>
+                  <span className="nav-dot"></span>
+                </li>
+                <li className="nav-list-item">
+                  <Link to="/categories/lifestyle/" className="nav-link">
+                    Lifestyle
+                  </Link>
+                  <span className="nav-dot"></span>
+                </li>
+                {/* <li class="nav-dots is-visible">
                   <ul class="nav-dots-wrap">
                     <li class="nav-list-item">
                       <a
@@ -122,7 +137,7 @@ export default class Header extends Component {
                   >
                     <path d="M18.420346,15.5800244 L24,21.1596784 L21.1596784,24 L15.5800244,18.420346 C13.9925104,19.4717887 12.088789,20.0841064 10.0420532,20.0841064 C4.49598037,20.0841064 0,15.5881261 0,10.0420532 C0,4.49598037 4.49598037,0 10.0420532,0 C15.5881261,0 20.0841064,4.49598037 20.0841064,10.0420532 C20.0841064,12.088789 19.4717887,13.9925104 18.420346,15.5800244 Z M10.0420532,16.0672851 C13.3696969,16.0672851 16.0672851,13.3696969 16.0672851,10.0420532 C16.0672851,6.71440951 13.3696969,4.01682129 10.0420532,4.01682129 C6.71440951,4.01682129 4.01682129,6.71440951 4.01682129,10.0420532 C4.01682129,13.3696969 6.71440951,16.0672851 10.0420532,16.0672851 Z" />
                   </svg>
-                </li>
+                </li> */}
               </ul>
             </nav>
           </div>
