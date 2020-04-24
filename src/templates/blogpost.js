@@ -43,9 +43,12 @@ const BlogPost = ({ pageContext, data }) => {
                   </svg>
                   <span>Featured</span>
                 </span>
-                <a class="post-tag global-tag" href="/tag/lifestyle/">
-                  Lifestyle
-                </a>
+                <Link
+                  class="post-tag global-tag"
+                  to={`/categories/${kebabCase(categories.name)}/`}
+                >
+                  {categories.name}
+                </Link>
               </div>
               <h1 class="white">{title}</h1>
               <div class="item-meta white">

@@ -11,9 +11,9 @@ const AuthorPage = ({ data }) => {
 
   return (
     <div>
-      <SEO title="All Categories" />
+      <SEO title="All Authors" />
       <div>
-        <h1>Categories</h1>
+        <h1>Authors</h1>
         <ul>
           {authorsData.map(author => (
             <li key={author.fieldValue}>
