@@ -34,6 +34,7 @@ module.exports = {
         accessToken: `6firBo1HKrBdw-pxCTnATrZ-m6-yGrSoSLnmX2EPqmA`,
       },
     },
+    "gatsby-transformer-remark",
     {
       resolve: `gatsby-plugin-disqus`,
       options: {

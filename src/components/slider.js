@@ -35,7 +35,7 @@ const Slider = () => {
       }
       allContentfulSliderImage(
         limit: 1
-        sort: { fields: updatedAt, order: DESC }
+        sort: { fields: updatedAt, order: ASC }
       ) {
         edges {
           node {
@@ -85,7 +85,9 @@ const Slider = () => {
                       </span>
                       <h2>
                         <Link
-                          to={`/blogpost/${post.slug}`}
+                          to={`/${kebabCase(post.categories.name)}/${
+                            post.slug
+                          }/`}
                           className="posts-title"
                         >
                           {post.title}

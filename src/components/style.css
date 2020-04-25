@@ -142,6 +142,7 @@
   z-index: 999;
   right: 3rem;
   bottom: 0;
+  border-radius: var(--border-radius-primary);
 }
 .home-recent .recent-posts {
   width: 100%;

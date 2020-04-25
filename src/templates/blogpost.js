@@ -84,7 +84,11 @@ const BlogPost = ({ pageContext, data }) => {
         </div>
         <div class="section-post wrap">
           <div class="post-wrap">
-            {content.content}
+            <div
+              dangerouslySetInnerHTML={{
+                __html: content.childMarkdownRemark.html,
+              }}
+            />
             <div className="tags">
               <strong>Tags: </strong>
               {tags.map(tag => (
@@ -94,7 +98,6 @@ const BlogPost = ({ pageContext, data }) => {
               ))}
             </div>
           </div>
-
           <div class="section-post-authors post-authors flex">
             <div class="author-label">
               <span>Author</span>
@@ -206,7 +209,9 @@ export const pageQuery = graphql`
       title
       slug
       content {
-        content
+        childMarkdownRemark {
+          html
+        }
       }
       categories {
         name
