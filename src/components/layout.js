@@ -6,8 +6,8 @@ import { Link } from "gatsby"
 import Header from "./header"
 //import "./layout.css"
 import "./style.css"
-import Newsletter from "./newsletter"
 
+import Newsletter from "./newsletter"
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {

@@ -4,59 +4,62 @@ import kebabCase from "lodash/kebabCase"
 // Components
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
+import Layout from "../components/layout"
 
 const CategoryPage = ({ data }) => {
-  const categoryData = data.allContentfulBlogPost.group
+  const categoryData = data.allContentfulCategory.edges
 
   return (
-    <div>
-      <SEO title="All Categories" />
-      <div>
-        <h1>Categories</h1>
-        <ul>
+    <Layout>
+      <SEO
+        title="All Categories"
+        keywords={[`gatsby`, `application`, `react`]}
+      />
+      <div class="section-page-tags wrap">
+        <div class="page-tags-wrap flex">
+          <div class="page-tags-title">
+            <h4>Our top categories</h4>
+          </div>
           {categoryData.map(category => (
-            <li key={category.fieldValue}>
-              <Link to={`/categories/${kebabCase(category.fieldValue)}/`}>
-                {category.fieldValue} ({category.totalCount})
-              </Link>
-              {/* <img src={category.nodes.featuredImage.file.url} alt="..." /> */}
-            </li>
+            <div class="page-tag-wrap top is-image" key={category.node.name}>
+              <Link
+                to={`/categories/${kebabCase(category.node.name)}/`}
+                class="item-link-overlay"
+              ></Link>
+              <div
+                class="page-tag-image"
+                style={{
+                  backgroundImage: `url(${category.node.image.fluid.src})`,
+                }}
+              ></div>
+              <h2>
+                <Link to={`/categories/${kebabCase(category.node.name)}/`}>
+                  {category.node.name}
+                </Link>
+              </h2>
+              <p>{category.node.intro.intro}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
-    </div>
+    </Layout>
   )
 }
-// TagsPage.propTypes = {
-//   data: PropTypes.shape({
-//     allMarkdownRemark: PropTypes.shape({
-//       group: PropTypes.arrayOf(
-//         PropTypes.shape({
-//           fieldValue: PropTypes.string.isRequired,
-//           totalCount: PropTypes.number.isRequired,
-//         }).isRequired
-//       ),
-//     }),
-//     site: PropTypes.shape({
-//       siteMetadata: PropTypes.shape({
-//         title: PropTypes.string.isRequired,
-//       }),
-//     }),
-//   }),
-// }
 
 export default CategoryPage
 
 export const pageQuery = graphql`
   query {
-    allContentfulBlogPost(sort: { fields: updatedAt, order: ASC }) {
-      group(field: categories___name, limit: 1) {
-        totalCount
-        fieldValue
-        nodes {
-          featuredImage {
-            file {
-              url
+    allContentfulCategory(filter: { name: { ne: "Uncategorized" } }) {
+      edges {
+        node {
+          name
+          intro {
+            intro
+          }
+          image {
+            fluid(toFormat: WEBP) {
+              src
             }
           }
         }
