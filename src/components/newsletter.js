@@ -2,6 +2,19 @@ import React, { Component } from "react"
 import { init } from "ityped"
 
 export default class Newsletter extends Component {
+  constructor(props) {
+    super(props)
+    this.NewsletterForm = React.createRef()
+    this.state = {
+      email: "",
+    }
+  }
+  encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
   componentDidMount() {
     const initTyped = document.querySelector(".ityped-wrap")
     init(initTyped, {
@@ -12,26 +25,43 @@ export default class Newsletter extends Component {
       backDelay: 5000,
     })
   }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    const form = this.NewsletterForm.current
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: this.encode({
+        "form-name": form.getAttribute("name"),
+        ...this.state,
+      }),
+    })
+      .then(() => navigate("/"))
+      .catch(error => alert(error))
+
+    this.setState({
+      email: "",
+    })
+  }
   render() {
     return (
       <div className="section-subscribe wrap" style={{ marginTop: "25px" }}>
         <div className="subscribe-wrap">
           <form
-            data-members-form="subscribe"
             className="subscribe-form"
             data-netlify="true"
             name="newsletter"
           >
-            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="newsletter" value="newsletter" />
             <h3>Join our occasional newsletter</h3>
             <div id="ityped" className="ityped">
               <span className="ityped-wrap"></span>
             </div>
             <div className="form-group">
               <input
-                method="post"
-                action="#"
-                data-members-email
                 className="subscribe-email"
                 placeholder="Your email address"
                 type="email"
