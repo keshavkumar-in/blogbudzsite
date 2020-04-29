@@ -4,16 +4,15 @@ import { init } from "ityped"
 export default class Newsletter extends Component {
   constructor(props) {
     super(props)
-    this.NewsletterForm = React.createRef()
     this.state = {
       email: "",
     }
   }
-  encode = data => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&")
-  }
+  // encode = data => {
+  //   return Object.keys(data)
+  //     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+  //     .join("&")
+  // }
 
   componentDidMount() {
     const initTyped = document.querySelector(".ityped-wrap")
@@ -26,26 +25,26 @@ export default class Newsletter extends Component {
     })
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
-    const form = this.NewsletterForm.current
-    fetch("/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: this.encode({
-        "form-name": form.getAttribute("name"),
-        ...this.state,
-      }),
-    })
-      .then(() => navigate("/"))
-      .catch(error => alert(error))
+  // handleSubmit = event => {
+  //   event.preventDefault()
+  //   const form = this.NewsletterForm.current
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/x-www-form-urlencoded",
+  //     },
+  //     body: this.encode({
+  //       "form-name": form.getAttribute("name"),
+  //       ...this.state,
+  //     }),
+  //   })
+  //     .then(() => navigate("/"))
+  //     .catch(error => alert(error))
 
-    this.setState({
-      email: "",
-    })
-  }
+  //   this.setState({
+  //     email: "",
+  //   })
+  // }
   render() {
     return (
       <div className="section-subscribe wrap" style={{ marginTop: "25px" }}>
@@ -55,7 +54,7 @@ export default class Newsletter extends Component {
             data-netlify="true"
             name="newsletter"
           >
-            <input type="hidden" name="newsletter" value="newsletter" />
+            <input type="hidden" name="form-name" value="newsletter" />
             <h3>Join our occasional newsletter</h3>
             <div id="ityped" className="ityped">
               <span className="ityped-wrap"></span>
