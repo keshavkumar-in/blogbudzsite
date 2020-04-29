@@ -51,7 +51,6 @@ export default class Newsletter extends Component {
         <div className="subscribe-wrap">
           <form
             className="subscribe-form"
-            data-netlify-recaptcha="true"
             data-netlify="true"
             name="newsletter"
           >
@@ -70,7 +69,6 @@ export default class Newsletter extends Component {
                 required
               />
             </div>
-            <div data-netlify-recaptcha="true"></div>
             <button type="submit" className="global-button">
               Subscribe
             </button>
