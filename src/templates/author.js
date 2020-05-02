@@ -8,23 +8,26 @@ import SEO from "../components/seo"
 const Author = ({ pageContext, data }) => {
   const { author } = pageContext
   const { edges, totalCount } = data.allContentfulBlogPost
+  const authdata = data.allContentfulAuthor.edges
 
-  const authorHeader = `"${author}" has written ${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  }.`
   return (
     <Layout>
       <SEO title={author} keywords={[`gatsby`, `application`, `react`]} />
       <div className="membership-plans membership-header section-profile is-cover">
-        <div
-          className="profile-wrap is-cover"
-          style={{
-            backgroundImage: `url(https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ)`,
-          }}
-        >
-          <h1>{author}</h1>
-          <h2>{totalCount} Posts</h2>
-        </div>
+        {authdata.map(({ node }) => {
+          return (
+            <div
+              className="profile-wrap is-cover"
+              style={{
+                backgroundImage: `url(${node.image.fluid.src})`,
+              }}
+            >
+              <h1>{author}</h1>
+              <h5>{node.intro.intro}</h5>
+              <h2>{totalCount} Posts</h2>
+            </div>
+          )
+        })}
       </div>
       <div id="loop" className="section-loop wrap">
         <div className="items-wrap membership-cards flex">
@@ -39,7 +42,7 @@ const Author = ({ pageContext, data }) => {
                   <div
                     className="item-image"
                     style={{
-                      backgroundImage: `url(${node.featuredImage.file.url})`,
+                      backgroundImage: `url(${node.featuredImage.fluid.src})`,
                     }}
                   ></div>
                   <div
@@ -95,8 +98,8 @@ export const pageQuery = graphql`
           title
           slug
           featuredImage {
-            file {
-              url
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           author {
@@ -109,6 +112,20 @@ export const pageQuery = graphql`
             excerpt
           }
           updatedAt(fromNow: true)
+        }
+      }
+    }
+    allContentfulAuthor(filter: { name: { eq: $author } }, limit: 1) {
+      edges {
+        node {
+          intro {
+            intro
+          }
+          image {
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
         }
       }
     }

@@ -72,7 +72,7 @@ export const query = graphql`
           }
           image {
             fluid(toFormat: WEBP) {
-              src
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }

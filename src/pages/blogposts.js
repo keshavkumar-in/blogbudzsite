@@ -43,8 +43,8 @@ export const query = graphql`
             name
           }
           featuredImage {
-            file {
-              url
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           tags

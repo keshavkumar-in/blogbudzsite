@@ -15,11 +15,8 @@ const Slider = () => {
             title
             slug
             featuredImage {
-              file {
-                url
-              }
-              fluid {
-                base64
+              fluid(toFormat: WEBP) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
             categories {
@@ -42,7 +39,7 @@ const Slider = () => {
             id
             image {
               fluid(toFormat: WEBP) {
-                src
+                ...GatsbyContentfulFluid_withWebp
               }
             }
           }
@@ -68,7 +65,7 @@ const Slider = () => {
                   <div
                     className="recent-posts-image"
                     style={{
-                      backgroundImage: `url(${post.featuredImage.file.url})`,
+                      backgroundImage: `url(${post.featuredImage.fluid.src})`,
                     }}
                   ></div>
                   <div className="posts-wrap flex">

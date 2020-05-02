@@ -26,7 +26,7 @@ const BlogPost = ({ pageContext, data }) => {
           <div
             className="featured-image"
             style={{
-              backgroundImage: `url(${featuredImage.file.url})`,
+              backgroundImage: `url(${featuredImage.fluid.src})`,
             }}
           ></div>
           <div className="featured-wrap flex">
@@ -109,7 +109,7 @@ const BlogPost = ({ pageContext, data }) => {
               <div
                 className="author-profile-image"
                 style={{
-                  backgroundImage: `url(${featuredImage.file.url})`,
+                  backgroundImage: `url(${author.image.fluid.src})`,
                 }}
               ></div>
               <div className="author-content">
@@ -221,14 +221,14 @@ export const pageQuery = graphql`
           intro
         }
         image {
-          file {
-            url
+          fluid(toFormat: WEBP) {
+            ...GatsbyContentfulFluid_withWebp
           }
         }
       }
       featuredImage {
-        file {
-          url
+        fluid(toFormat: WEBP) {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       tags

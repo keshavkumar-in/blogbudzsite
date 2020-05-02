@@ -84,7 +84,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Extract author data from query
   const authors = result.data.authorsGroup.group
 
-  // Make category pages
+  // Make author pages
   authors.forEach(author => {
     createPage({
       path: `/authors/${_.kebabCase(author.fieldValue)}/`,

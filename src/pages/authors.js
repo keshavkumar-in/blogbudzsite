@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const AuthorPage = ({ data }) => {
-  const authorsData = data.allContentfulBlogPost.group
+  const authorsData = data.allContentfulAuthor.edges
 
   return (
     <Layout>
@@ -23,30 +23,32 @@ const AuthorPage = ({ data }) => {
       </div>
       <div id="loop" className="section-loop wrap">
         <div className="items-wrap membership-cards flex">
-          {authorsData.map(author => (
-            <Link
-              to={`/authors/${kebabCase(author.fieldValue)}/`}
-              className="membership-card monthly"
-              key={author.fieldValue}
-            >
-              <div className="membership-card-content">
-                {/* <div
+          {authorsData.map(({ node }) => {
+            return (
+              <Link
+                to={`/authors/${kebabCase(node.name)}/`}
+                className="membership-card"
+                key={node.id}
+              >
+                <div className="membership-card-content">
+                  <div
                     className="item-image"
                     style={{
-                      backgroundImage: `url(${node.featuredImage.file.url})`,
+                      backgroundImage: `url(${node.image.fluid.src})`,
                     }}
-                  ></div> */}
+                  ></div>
 
-                <h2 className="membership-card-title">{author.fieldValue}</h2>
-                <h3>Posts Written: {author.totalCount}</h3>
-                <div className="membership-card-button-wrap">
-                  <div className="membership-card-button global-button read-more-button">
-                    Visit Author Posts
+                  <h2 className="membership-card-title">{node.name}</h2>
+                  <h5 style={{ color: "white" }}>{node.intro.intro}</h5>
+                  <div className="membership-card-button-wrap">
+                    <div className="membership-card-button global-button read-more-button">
+                      Visit Author Posts
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </Layout>
@@ -56,11 +58,24 @@ const AuthorPage = ({ data }) => {
 export default AuthorPage
 
 export const pageQuery = graphql`
-  query {
-    allContentfulBlogPost(sort: { fields: updatedAt, order: ASC }) {
-      group(field: author___name, limit: 1) {
-        totalCount
-        fieldValue
+  {
+    allContentfulAuthor {
+      edges {
+        node {
+          id
+          name
+          image {
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+          intro {
+            intro
+          }
+          github
+          facebook
+          website
+        }
       }
     }
   }
