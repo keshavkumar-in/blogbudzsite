@@ -68,6 +68,12 @@ export default class Header extends Component {
                   </Link>
                   <span className="nav-dot"></span>
                 </li>
+                <li className="nav-list-item">
+                  <Link to="/categories/miscellaneous/" className="nav-link">
+                    Miscellaneous
+                  </Link>
+                  <span className="nav-dot"></span>
+                </li>
                 {/* <li class="nav-dots is-visible">
                   <ul class="nav-dots-wrap">
                     <li class="nav-list-item">
