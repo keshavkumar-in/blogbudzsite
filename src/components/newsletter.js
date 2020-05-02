@@ -8,16 +8,11 @@ export default class Newsletter extends Component {
       email: "",
     }
   }
-  // encode = data => {
-  //   return Object.keys(data)
-  //     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-  //     .join("&")
-  // }
 
   componentDidMount() {
     const initTyped = document.querySelector(".ityped-wrap")
     init(initTyped, {
-      strings: ["Start your day with Wrixby ", "No spam ever, we promise! "],
+      strings: ["Start your day with Blogbudz ", "No spam ever, we promise! "],
       showCursor: true,
       typeSpeed: 150,
       startDelay: 500,
@@ -25,26 +20,6 @@ export default class Newsletter extends Component {
     })
   }
 
-  // handleSubmit = event => {
-  //   event.preventDefault()
-  //   const form = this.NewsletterForm.current
-  //   fetch("/", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/x-www-form-urlencoded",
-  //     },
-  //     body: this.encode({
-  //       "form-name": form.getAttribute("name"),
-  //       ...this.state,
-  //     }),
-  //   })
-  //     .then(() => navigate("/"))
-  //     .catch(error => alert(error))
-
-  //   this.setState({
-  //     email: "",
-  //   })
-  // }
   render() {
     return (
       <div className="section-subscribe wrap" style={{ marginTop: "25px" }}>

@@ -6,8 +6,10 @@ import { Link } from "gatsby"
 import Header from "./header"
 //import "./layout.css"
 import "./style.css"
+import blogbudz from "../images/blogbudz.svg"
 
 import Newsletter from "./newsletter"
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -30,7 +32,7 @@ const Layout = ({ children }) => {
             <div className="footer-wrap wrap flex">
               <div className="footer-logo flex">
                 <Link className="is-logo" to="/">
-                  <img src="/content/images/2018/12/nurui.svg" alt="Wrixby" />
+                  <img src={blogbudz} alt="Blogbudz" width="200" />
                 </Link>
               </div>
               <div className="footer-nav">
@@ -107,8 +109,9 @@ const Layout = ({ children }) => {
               </div>
             </div>
             <div className="footer-copyright">
-              &copy;2020 <a href="https://nurui.fueko.net">Wrixby</a> . All
-              Right Reserved.
+              &copy; {new Date().getFullYear()}{" "}
+              <a href="https://blogbudz.com">Blogbudz.com</a> . All Rights
+              Reserved.
             </div>
           </footer>
         </div>

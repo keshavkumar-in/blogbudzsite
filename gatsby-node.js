@@ -56,7 +56,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const next = index === posts.length - 1 ? null : posts[index + 1].node
 
     createPage({
-      path: `/${_.kebabCase(edge.node.categories.name)}/${edge.node.slug}/`,
+      path: `/${edge.node.slug}/`,
       component: slash(blogPostTemplate),
       context: {
         slug: edge.node.slug,

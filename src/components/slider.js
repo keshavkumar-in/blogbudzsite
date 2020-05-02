@@ -81,12 +81,7 @@ const Slider = () => {
                         Featured
                       </span>
                       <h2>
-                        <Link
-                          to={`/${kebabCase(post.categories.name)}/${
-                            post.slug
-                          }/`}
-                          className="posts-title"
-                        >
+                        <Link to={`/${post.slug}/`} className="posts-title">
                           {post.title}
                         </Link>
                         <span className="posts-dot"></span>

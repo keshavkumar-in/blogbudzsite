@@ -3712,7 +3712,7 @@ iframe {
 }
 .footer-logo .is-logo img {
   max-width: 100%;
-  max-height: 35px;
+  max-height: 45px;
 }
 .footer-logo .no-logo {
   font-size: 25px;
@@ -4507,7 +4507,7 @@ iframe {
   position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  max-width: 410px;
+  max-width: 510px;
   margin: 15px;
   padding-bottom: 70px;
   -webkit-transition: -webkit-transform 0.2s ease;
@@ -4516,8 +4516,8 @@ iframe {
   transition: transform 0.2s ease, -webkit-transform 0.2s ease;
   text-align: center;
   -webkit-box-flex: 1;
-  -ms-flex: 1 0 250px;
-  flex: 1 0 250px;
+  -ms-flex: 1 0 300px;
+  flex: 1 0 300px;
 }
 
 .membership-card:hover {

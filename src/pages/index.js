@@ -9,7 +9,19 @@ const IndexPage = ({ data }) => {
   const category = data.allContentfulCategory.edges
   return (
     <Layout>
-      <SEO title="Wrixby" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO
+        title="Blogbudz"
+        keywords={[
+          `blogbudz`,
+          `blog`,
+          `technology blog`,
+          `social media blog`,
+          `lifestyle blog`,
+          `latest news`,
+          `business blog`,
+          `entertainment blog`,
+        ]}
+      />
       <Slider />
       <div id="loop" className="section-loop wrap is-featured">
         <div className="items-wrap flex">

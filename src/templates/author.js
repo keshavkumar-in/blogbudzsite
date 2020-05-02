@@ -1,7 +1,5 @@
 import React from "react"
-// Components
 import { Link, graphql } from "gatsby"
-import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -34,7 +32,7 @@ const Author = ({ pageContext, data }) => {
           {edges.map(({ node }) => {
             return (
               <Link
-                to={`/${kebabCase(node.categories.name)}/${node.slug}/`}
+                to={`/${node.slug}/`}
                 className="membership-card"
                 key={node.id}
               >

@@ -1,7 +1,6 @@
 import React from "react"
 // Components
 import { Link, graphql } from "gatsby"
-import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -35,7 +34,7 @@ const Categories = ({ pageContext, data }) => {
           {edges.map(({ node }) => {
             return (
               <Link
-                to={`/${kebabCase(node.categories.name)}/${node.slug}/`}
+                to={`/${node.slug}/`}
                 className="membership-card"
                 key={node.id}
               >
@@ -88,7 +87,7 @@ export const pageQuery = graphql`
   query($category: String) {
     allContentfulBlogPost(
       sort: { fields: updatedAt, order: DESC }
-      filter: { categories: { name: { eq: $category } } }
+      filter: { categories: { elemMatch: { name: { in: [$category] } } } }
     ) {
       totalCount
       edges {

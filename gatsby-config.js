@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Wrixby Blog`,
+    title: `Blogbudz`,
     description: `An awesome blog displaying my awesome posts.`,
     author: `Keshav Kumar`,
   },
@@ -18,8 +18,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Blogbudz.com`,
+        short_name: `Blogbudz`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
