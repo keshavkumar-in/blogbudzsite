@@ -148,7 +148,7 @@ const BlogPost = ({ pageContext, data }) => {
                 socialConfig={{
                   twitterHandle,
                   config: {
-                    url: `${siteUrl}${slug}`,
+                    url: `${siteUrl}/${slug}`,
                     title,
                   },
                 }}
@@ -213,6 +213,7 @@ const BlogPost = ({ pageContext, data }) => {
               <section className="prev-next-title">
                 <h5>Previous Post</h5>
                 <h3>{prev.title}</h3>
+                {/* <img src={prev.featuredImage.fluid.src} alt="..." /> */}
               </section>
             </Link>
           )}

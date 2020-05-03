@@ -4,7 +4,7 @@ module.exports = {
     description: `An awesome blog displaying my awesome posts.`,
     author: `Blogbudz.com`,
     twitterHandle: `@geekykeshav`,
-    siteUrl: "https://blogbudz.com/",
+    siteUrl: `https://blogbudz.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -40,11 +40,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `blogbudz`,
+        shortname: `blogbudz-com`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    //`gatsby-plugin-offline`,
   ],
 }

@@ -33,7 +33,6 @@ const Share = ({ socialConfig, tags }) => (
       hashtags={tags}
     >
       <TwitterIcon size={40} round={true} />
-      {/* <span className="text">Twitter</span> */}
     </TwitterShareButton>
     <PinterestShareButton
       url={socialConfig.config.url}
