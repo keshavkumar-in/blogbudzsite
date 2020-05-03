@@ -20,7 +20,7 @@ const BlogPost = ({ pageContext, data }) => {
   } = data.contentfulBlogPost
   const {
     site: {
-      siteMetadata: { url, twitterHandle },
+      siteMetadata: { siteUrl, twitterHandle },
     },
   } = data
   const { prev, next } = pageContext
@@ -108,9 +108,6 @@ const BlogPost = ({ pageContext, data }) => {
                 </span>
               ))}
             </div>
-            <div>
-              <strong>Share: </strong>
-            </div>
           </div>
           <div className="section-post-authors post-authors flex">
             <div className="author-label">
@@ -141,7 +138,7 @@ const BlogPost = ({ pageContext, data }) => {
                 socialConfig={{
                   twitterHandle,
                   config: {
-                    url: `${url}/${slug}`,
+                    url: `${siteUrl}/${slug}`,
                     title,
                   },
                 }}
@@ -231,7 +228,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     site {
       siteMetadata {
-        url
+        siteUrl
         twitterHandle
       }
     }

@@ -4,7 +4,7 @@ module.exports = {
     description: `An awesome blog displaying my awesome posts.`,
     author: `Blogbudz.com`,
     twitterHandle: `@geekykeshav`,
-    url: "https://blogbudz.com",
+    siteUrl: "https://blogbudz.com",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
