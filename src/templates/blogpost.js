@@ -2,25 +2,35 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Disqus, CommentCount } from "gatsby-plugin-disqus"
+// import { Disqus, CommentCount } from "gatsby-plugin-disqus"
 import kebabCase from "lodash/kebabCase"
+import Share from "../components/share"
 
 const BlogPost = ({ pageContext, data }) => {
   const {
     title,
     slug,
     content,
+    excerpt,
     featuredImage,
     tags,
     updatedAt,
     categories,
     author,
   } = data.contentfulBlogPost
-
+  const {
+    site: {
+      siteMetadata: { url, twitterHandle },
+    },
+  } = data
   const { prev, next } = pageContext
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO
+        title={title}
+        description={excerpt.excerpt}
+        image={featuredImage.fluid.src}
+      />
       <article>
         <div className="section-featured is-featured-image">
           <div
@@ -98,6 +108,9 @@ const BlogPost = ({ pageContext, data }) => {
                 </span>
               ))}
             </div>
+            <div>
+              <strong>Share: </strong>
+            </div>
           </div>
           <div className="section-post-authors post-authors flex">
             <div className="author-label">
@@ -124,7 +137,17 @@ const BlogPost = ({ pageContext, data }) => {
           </div>
           <div className="post-meta">
             <div className="post-share">
-              <a
+              <Share
+                socialConfig={{
+                  twitterHandle,
+                  config: {
+                    url: `${url}/${slug}`,
+                    title,
+                  },
+                }}
+                tags={tags}
+              />
+              {/* <a
                 className="twitter"
                 href="https://twitter.com/intent/tweet?text=I'm%20passionate%20about%20food%2C%20the%20tradition%20of%20it%2C%20cooking%20it%2C%20sharing%20it&amp;url=https://nurui.fueko.net/im-passionate-about-food-the-tradition-of-it-cooking-it-sharing-it/"
                 onClick={`window.open(this.href, 'twitter-share', 'width=550,height=235');return false;`}
@@ -166,7 +189,7 @@ const BlogPost = ({ pageContext, data }) => {
                 type="text"
                 defaultValue={`https://blogbudz.com/${slug}`}
                 id="link-value"
-              />
+              /> */}
             </div>
           </div>
         </div>
@@ -206,9 +229,18 @@ const BlogPost = ({ pageContext, data }) => {
 export default BlogPost
 export const pageQuery = graphql`
   query($slug: String!) {
+    site {
+      siteMetadata {
+        url
+        twitterHandle
+      }
+    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       slug
+      excerpt {
+        excerpt
+      }
       content {
         childMarkdownRemark {
           html

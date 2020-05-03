@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import blogbudz from "../images/blogbudz.svg"
-
 const Header = () => {
   return (
     <div className="section-header wrap">
@@ -25,12 +24,12 @@ const Header = () => {
             </label>
             <input type="checkbox" id="toggle" className="nav-toggle" />
             <ul className="nav-list">
-              <li className="nav-list-item">
+              {/* <li className="nav-list-item">
                 <Link to="/" className="nav-link">
                   Home
                 </Link>
                 <span className="nav-dot nav-dot-current"></span>
-              </li>
+              </li> */}
               <li className="nav-list-item">
                 <Link to="/categories/technology/" className="nav-link">
                   Technology

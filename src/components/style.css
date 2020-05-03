@@ -128,6 +128,12 @@
   color: white;
   font-size: 12px;
 }
+/* Share Button CSS Start */
+.post-social .button {
+  margin: 0rem 1rem;
+}
+/* Share Button CSS End */
+
 /* HomePage Banner Recent Posts*/
 .home-banner {
   height: 100vh;
@@ -1969,11 +1975,16 @@ br + .global-button {
 }
 .item-wrap {
   min-width: 350px;
-  -webkit-box-flex: 999;
-  -ms-flex: 999 0 33.333%;
-  flex: 999 0 33.333%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 33.333%;
+  flex: 1 0 33.333%;
 }
 .item-wrap:nth-child(2) {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 66.666%;
+  flex: 1 0 66.666%;
+}
+.item-wrap:nth-child(3) {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 66.666%;
   flex: 1 0 66.666%;
@@ -1984,7 +1995,7 @@ br + .global-button {
   flex: 1 0 66.666%;
 }
 .item-wrap h2 {
-  font-size: 33px;
+  font-size: 2rem;
   font-weight: var(--font-weight-primary-bold);
   line-height: 1.35;
   margin-right: 10%;
@@ -2217,7 +2228,7 @@ br + .global-button {
 }
 .post-meta {
   position: relative;
-  max-width: 263px;
+  max-width: 330px;
   margin: 0 auto;
 }
 .post-share {
@@ -2227,7 +2238,7 @@ br + .global-button {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  margin: 50px auto 0;
+  /* margin: 0px auto 0; */
   padding: 11px 13px;
   border-radius: 26px;
   background-color: var(--color-body);
@@ -2810,7 +2821,7 @@ iframe {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   max-width: 220px;
-  min-height: 125px;
+  min-height: 250px;
   margin: 8px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -2853,7 +2864,7 @@ iframe {
 }
 .post-authors .author-profile-image {
   width: 100%;
-  height: 90px;
+  height: 200px;
   background: no-repeat center center;
   background-size: cover;
 }
@@ -2914,7 +2925,7 @@ iframe {
   }
   .post-authors .author-wrap {
     min-width: initial;
-    min-height: 80px;
+    min-height: 120px;
     border-radius: 100px;
   }
   .post-authors h4 {

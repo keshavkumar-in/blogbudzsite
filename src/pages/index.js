@@ -26,44 +26,42 @@ const IndexPage = ({ data }) => {
       <div id="loop" className="section-loop wrap is-featured">
         <div className="items-wrap flex">
           {category.map(edge => (
-            <div key={edge.node.id}>
-              <div className="item-wrap flex post is-image">
-                <article>
+            <div className="item-wrap flex is-image" key={edge.node.id}>
+              <article>
+                <Link
+                  to={`/categories/${kebabCase(edge.node.name)}/`}
+                  className="item-link-overlay"
+                  aria-label={edge.node.name}
+                ></Link>
+                <div
+                  className="item-image"
+                  style={{
+                    backgroundImage: `url(${edge.node.image.fluid.src})`,
+                  }}
+                ></div>
+                <h2>
                   <Link
                     to={`/categories/${kebabCase(edge.node.name)}/`}
-                    className="item-link-overlay"
-                    aria-label={edge.node.name}
-                  ></Link>
-                  <div
-                    className="item-image"
-                    style={{
-                      backgroundImage: `url(${edge.node.image.fluid.src})`,
-                    }}
-                  ></div>
-                  <h2>
-                    <Link
-                      to={`/categories/${kebabCase(edge.node.name)}/`}
-                      className="white"
-                    >
-                      {edge.node.name}
-                    </Link>
-                  </h2>
-                  <div className="item-meta white is-primary-tag is-members-label">
-                    {edge.node.intro.intro}
-                    {/* <span>by</span>
+                    className="white"
+                  >
+                    {edge.node.name}
+                  </Link>
+                </h2>
+                <div className="item-meta white is-primary-tag is-members-label">
+                  {edge.node.intro.intro}
+                  {/* <span>by</span>
                     <a class="author-name white" href="/author/patricia/">
                       Patricia Jenkins
                     </a>
                     <time datetime="2018-05-17">2 years ago</time> */}
-                  </div>
-                  {/* <a class="primary-tag global-tag white" href="/tag/story/">
+                </div>
+                {/* <a class="primary-tag global-tag white" href="/tag/story/">
                     Story
                   </a> */}
-                  {/* <span class="global-tag primary-tag white">
+                {/* <span class="global-tag primary-tag white">
                     Total Posts: {totalpost}
                   </span> */}
-                </article>
-              </div>
+              </article>
             </div>
           ))}
         </div>
