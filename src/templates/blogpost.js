@@ -2,12 +2,13 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import { Disqus, CommentCount } from "gatsby-plugin-disqus"
+import { Disqus, CommentCount } from "gatsby-plugin-disqus"
 import kebabCase from "lodash/kebabCase"
 import Share from "../components/share"
 
 const BlogPost = ({ pageContext, data }) => {
   const {
+    id,
     title,
     slug,
     content,
@@ -24,6 +25,12 @@ const BlogPost = ({ pageContext, data }) => {
     },
   } = data
   const { prev, next } = pageContext
+
+  let disqusConfig = {
+    url: `${siteUrl + slug}`,
+    identifier: id,
+    title: title,
+  }
   return (
     <Layout>
       <SEO
@@ -87,7 +94,10 @@ const BlogPost = ({ pageContext, data }) => {
                       id="Line"
                     ></path>
                   </svg>
-                  {/* <CommentCount config={disqusConfig} placeholder={"..."} /> */}
+                  <CommentCount
+                    config={disqusConfig}
+                    placeholder={"No. of Comments"}
+                  />
                 </span>
               </div>
             </div>
@@ -219,7 +229,7 @@ const BlogPost = ({ pageContext, data }) => {
           )}
         </div>
       </aside>
-      {/* <Disqus config={disqusConfig} /> */}
+      <Disqus config={disqusConfig} />
     </Layout>
   )
 }
@@ -233,6 +243,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulBlogPost(slug: { eq: $slug }) {
+      id
       title
       slug
       excerpt {

@@ -40,7 +40,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `ghost-194`,
+        shortname: `blogbudz`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
