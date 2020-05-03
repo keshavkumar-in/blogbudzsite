@@ -148,7 +148,7 @@ const BlogPost = ({ pageContext, data }) => {
                 socialConfig={{
                   twitterHandle,
                   config: {
-                    url: `${siteUrl}/${slug}`,
+                    url: `${siteUrl}${slug}`,
                     title,
                   },
                 }}
