@@ -36,7 +36,7 @@ const IndexPage = ({ data }) => {
                 <div
                   className="item-image"
                   style={{
-                    backgroundImage: `url(${edge.node.image.fluid.src}&fm=WEBP || ${edge.node.image.fluid.src})`,
+                    backgroundImage: `url(${edge.node.image.fluid.src})`,
                   }}
                 ></div>
                 <h2>

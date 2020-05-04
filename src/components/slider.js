@@ -15,8 +15,8 @@ const Slider = () => {
             title
             slug
             featuredImage {
-              fluid(toFormat: WEBP) {
-                ...GatsbyContentfulFluid_withWebp
+              fluid {
+                ...GatsbyContentfulFluid
               }
             }
             categories {
@@ -38,8 +38,8 @@ const Slider = () => {
           node {
             id
             image {
-              fluid(toFormat: WEBP) {
-                ...GatsbyContentfulFluid_withWebp
+              fluid {
+                ...GatsbyContentfulFluid
               }
             }
           }

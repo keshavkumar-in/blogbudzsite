@@ -141,7 +141,7 @@
   background-size: cover;
 }
 .home-recent {
-  width: 18rem;
+  width: 20rem;
   height: calc(100vh - 130px - 110px);
   overflow: auto;
   position: absolute;
