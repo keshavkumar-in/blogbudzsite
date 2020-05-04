@@ -65,7 +65,7 @@ export const pageQuery = graphql`
           id
           name
           image {
-            fluid(toFormat: WEBP) {
+            fluid {
               ...GatsbyContentfulFluid_withWebp
             }
           }

@@ -82,7 +82,7 @@ export const query = graphql`
           }
           image {
             fluid {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }

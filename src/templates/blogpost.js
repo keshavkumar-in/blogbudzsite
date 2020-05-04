@@ -260,13 +260,13 @@ export const pageQuery = graphql`
           intro
         }
         image {
-          fluid(toFormat: WEBP) {
+          fluid {
             ...GatsbyContentfulFluid_withWebp
           }
         }
       }
       featuredImage {
-        fluid(toFormat: WEBP) {
+        fluid {
           ...GatsbyContentfulFluid_withWebp
         }
       }

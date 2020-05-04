@@ -96,7 +96,7 @@ export const pageQuery = graphql`
           title
           slug
           featuredImage {
-            fluid(toFormat: WEBP) {
+            fluid {
               ...GatsbyContentfulFluid_withWebp
             }
           }
@@ -120,7 +120,7 @@ export const pageQuery = graphql`
             intro
           }
           image {
-            fluid(toFormat: WEBP) {
+            fluid {
               ...GatsbyContentfulFluid_withWebp
             }
           }
