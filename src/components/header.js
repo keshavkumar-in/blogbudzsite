@@ -37,6 +37,12 @@ const Header = () => {
                 <span className="nav-dot"></span>
               </li>
               <li className="nav-list-item">
+                <Link to="/categories/coding/" className="nav-link">
+                  Coding
+                </Link>
+                <span className="nav-dot"></span>
+              </li>
+              <li className="nav-list-item">
                 <Link to="/categories/how-to/" className="nav-link">
                   How To
                 </Link>

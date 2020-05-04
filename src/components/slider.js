@@ -16,7 +16,7 @@ const Slider = () => {
             slug
             featuredImage {
               fluid {
-                ...GatsbyContentfulFluid
+                ...GatsbyContentfulFluid_withWebp
               }
             }
             categories {
@@ -39,7 +39,7 @@ const Slider = () => {
             id
             image {
               fluid {
-                ...GatsbyContentfulFluid
+                ...GatsbyContentfulFluid_withWebp
               }
             }
           }
