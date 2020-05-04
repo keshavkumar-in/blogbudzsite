@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Keshav Kumar, Kirs",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "gatsby": "^2.20.25",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-disqus": "^1.1.4",

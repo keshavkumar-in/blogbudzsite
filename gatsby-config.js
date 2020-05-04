@@ -1,3 +1,8 @@
+const dotenv = require("dotenv")
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config()
+}
+
 module.exports = {
   siteMetadata: {
     title: `Blogbudz`,
@@ -33,7 +38,7 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `k2bz2774lau9`,
-        accessToken: `6firBo1HKrBdw-pxCTnATrZ-m6-yGrSoSLnmX2EPqmA`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     "gatsby-transformer-remark",
