@@ -27,7 +27,7 @@ const BlogPost = ({ pageContext, data }) => {
   const { prev, next } = pageContext
 
   let disqusConfig = {
-    url: `${siteUrl + slug}`,
+    url: `${siteUrl}/${slug}`,
     identifier: id,
     title: title,
   }
@@ -144,7 +144,7 @@ const BlogPost = ({ pageContext, data }) => {
                 socialConfig={{
                   twitterHandle,
                   config: {
-                    url: `${siteUrl}${slug}`,
+                    url: `${siteUrl}/${slug}`,
                     title,
                   },
                 }}

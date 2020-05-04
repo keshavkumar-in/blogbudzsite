@@ -9,7 +9,7 @@ module.exports = {
     description: `An awesome blog displaying my awesome posts.`,
     author: `Blogbudz.com`,
     twitterHandle: `@geekykeshav`,
-    siteUrl: `https://blogbudz.com/`,
+    siteUrl: `https://blogbudz.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -41,9 +41,7 @@ module.exports = {
           },
           {
             resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: "language-",
-            },
+            options: {},
           },
         ],
       },
