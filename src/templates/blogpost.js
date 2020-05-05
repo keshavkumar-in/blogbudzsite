@@ -18,6 +18,7 @@ const BlogPost = ({ pageContext, data }) => {
     updatedAt,
     categories,
     author,
+    createdAt,
   } = data.contentfulBlogPost
   const {
     site: {
@@ -37,6 +38,12 @@ const BlogPost = ({ pageContext, data }) => {
         title={title}
         description={excerpt.excerpt}
         image={featuredImage.fluid.src}
+        keywords={tags}
+        datePublished={createdAt}
+        dateModified={updatedAt}
+        author={author.name}
+        // pathname={`${siteUrl + slug}`}
+        isBlogPost
       />
       <article>
         <div className="section-featured is-featured-image">
@@ -63,6 +70,7 @@ const BlogPost = ({ pageContext, data }) => {
                   <Link
                     className="post-tag global-tag"
                     to={`/categories/${kebabCase(categories.name)}/`}
+                    key={categories.name}
                   >
                     {categories.name}
                   </Link>
@@ -74,7 +82,7 @@ const BlogPost = ({ pageContext, data }) => {
                 <Link to={`/authors/${kebabCase(author.name)}/`}>
                   {author.name}
                 </Link>
-                , <time dateTime={updatedAt}>{updatedAt}</time>
+                ,{" "}
                 <span className="reading-time">
                   <svg
                     role="img"
@@ -94,7 +102,8 @@ const BlogPost = ({ pageContext, data }) => {
                       id="Line"
                     ></path>
                   </svg>
-                </span>
+                </span>{" "}
+                <time dateTime={updatedAt}>{updatedAt.fromnow}</time>
               </div>
             </div>
           </div>
@@ -271,6 +280,7 @@ export const pageQuery = graphql`
         }
       }
       tags
+      createdAt(formatString: "")
       updatedAt(fromNow: true)
     }
   }

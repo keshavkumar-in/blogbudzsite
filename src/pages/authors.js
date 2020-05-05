@@ -7,15 +7,16 @@ import SEO from "../components/seo"
 
 const AuthorPage = ({ data }) => {
   const authorsData = data.allContentfulAuthor.edges
-
+  const authoraHeader = data.contentfulAsset
   return (
     <Layout>
       <SEO title="All Authors" />
       <div className="membership-plans membership-header section-profile is-cover">
         <div
-          className="profile-wrap is-cover"
+          className="profile-wrap is-author"
           style={{
-            backgroundImage: `url(https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ)`,
+            backgroundImage: `url(${authoraHeader.file.url})`,
+            height: "50vh",
           }}
         >
           <h1>Authors</h1>
@@ -59,6 +60,12 @@ export default AuthorPage
 
 export const pageQuery = graphql`
   {
+    contentfulAsset(title: { eq: "Authors Header" }) {
+      title
+      file {
+        url
+      }
+    }
     allContentfulAuthor {
       edges {
         node {

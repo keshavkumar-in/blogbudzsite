@@ -59,7 +59,7 @@ const Slider = () => {
               backgroundImage: `url(${slider.image.fluid.src})`,
             }}
           >
-            <div className="home-recent flex">
+            <div className="home-recent flex" id="home-recent">
               {blogPosts.map(({ node: post }) => (
                 <div className="recent-posts" key={post.id}>
                   <div

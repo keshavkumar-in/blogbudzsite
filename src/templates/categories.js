@@ -21,6 +21,7 @@ const Categories = ({ pageContext, data }) => {
               style={{
                 backgroundImage: `url(${node.image.fluid.src})`,
               }}
+              key={node.id}
             >
               <h1>{category}</h1>
               <h5>{node.intro.intro}</h5>
@@ -116,6 +117,7 @@ export const pageQuery = graphql`
     allContentfulCategory(filter: { name: { eq: $category } }, limit: 1) {
       edges {
         node {
+          id
           intro {
             intro
           }

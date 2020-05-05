@@ -10,6 +10,7 @@ module.exports = {
     author: `Blogbudz.com`,
     twitterHandle: `@geekykeshav`,
     siteUrl: `https://blogbudz.com`,
+    organization: `Blogbudz.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -52,10 +53,10 @@ module.exports = {
         name: `Blogbudz.com`,
         short_name: `Blogbudz`,
         start_url: `/`,
-        background_color: `#0cc798`,
-        theme_color: `#0cc798`,
+        background_color: `#262626`,
+        theme_color: `#262626`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/blogbudz-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
@@ -90,6 +91,110 @@ module.exports = {
         host: `https://blogbudz.com`,
         sitemap: `https://blogbudz.com/sitemap.xml`,
         policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        // graphQL query to get siteMetadata
+        query: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl,
+              author
+            }
+          }
+        }
+        `,
+        feeds: [
+          // an array of feeds, I just have one below
+          {
+            serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              const {
+                siteMetadata: { siteUrl },
+              } = site
+              return allContentfulBlogPost.edges.map(edge => {
+                const {
+                  node: {
+                    title,
+                    slug,
+                    content,
+                    excerpt,
+                    featuredImage,
+                    tags,
+                    createdAt,
+                    updatedAt,
+                    categories,
+                    author,
+                  },
+                } = edge
+                return Object.assign({}, edge.node, {
+                  language: `en-us`,
+                  title,
+                  description: excerpt,
+                  createdAt,
+                  updatedAt,
+                  url: siteUrl + slug,
+                  guid: siteUrl + slug,
+                  author: `${author.name}`,
+                  image: {
+                    url: `https:` + featuredImage.file.url,
+                    title: featuredImage.title,
+                    link: `https:` + featuredImage.file.url,
+                  },
+                  custom_elements: [
+                    { "content:encoded": content.childMarkdownRemark.html },
+                  ],
+                  categories: categories.name,
+                  tags,
+                })
+              })
+            },
+            // query to get blog post data
+            query: `
+            {
+              allContentfulBlogPost(sort: {order: DESC, fields: updatedAt}) {
+                edges {
+                  node {
+                    id
+                    slug
+                    title
+                    excerpt {
+                      excerpt
+                    }
+                    content {
+                      childMarkdownRemark {
+                        html
+                      }
+                    }
+                    featuredImage {
+                      file {
+                        url
+                      }
+                      title
+                    }
+                    categories {
+                      name
+                    }
+                    author {
+                      name
+                    }
+                    tags
+                    createdAt(formatString: "")
+                    updatedAt(formatString: "")
+                  }
+                }
+              }
+            }          
+            `,
+            output: "/rss.xml",
+            title: `Blogbudz.com | RSS Feed`,
+          },
+        ],
       },
     },
   ],
