@@ -103,7 +103,7 @@ const BlogPost = ({ pageContext, data }) => {
                     ></path>
                   </svg>
                 </span>{" "}
-                <time dateTime={updatedAt}>{updatedAt.fromnow}</time>
+                <time dateTime={updatedAt}>{updatedAt}</time>
               </div>
             </div>
           </div>
