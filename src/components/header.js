@@ -41,7 +41,11 @@ const Header = () => {
                 <span className="nav-dot nav-dot-current"></span>
               </li> */}
               <li className="nav-list-item">
-                <Link to="/categories/technology/" className="nav-link">
+                <Link
+                  to="/categories/technology/"
+                  className="nav-link"
+                  activeStyle={{ borderBottom: "3px solid blue" }}
+                >
                   Technology
                 </Link>
                 <span
@@ -49,37 +53,61 @@ const Header = () => {
                 ></span>
               </li>
               <li className="nav-list-item">
-                <Link to="/categories/coding/" className="nav-link">
+                <Link
+                  to="/categories/coding/"
+                  className="nav-link"
+                  activeStyle={{ borderBottom: "3px solid blue" }}
+                >
                   Coding
                 </Link>
                 <span className="nav-dot"></span>
               </li>
               <li className="nav-list-item">
-                <Link to="/categories/how-to/" className="nav-link">
+                <Link
+                  to="/categories/how-to/"
+                  className="nav-link"
+                  activeStyle={{ borderBottom: "3px solid blue" }}
+                >
                   How To
                 </Link>
                 <span className="nav-dot"></span>
               </li>
               <li className="nav-list-item">
-                <Link to="/categories/top-lists/" className="nav-link">
+                <Link
+                  to="/categories/top-lists/"
+                  className="nav-link"
+                  activeStyle={{ borderBottom: "3px solid blue" }}
+                >
                   Top Lists
                 </Link>
                 <span className="nav-dot"></span>
               </li>
               <li className="nav-list-item">
-                <Link to="/categories/social-media/" className="nav-link">
+                <Link
+                  to="/categories/social-media/"
+                  className="nav-link"
+                  activeStyle={{ borderBottom: "3px solid blue" }}
+                >
                   Social Media
                 </Link>
                 <span className="nav-dot"></span>
               </li>
               <li className="nav-list-item">
-                <Link to="/categories/health-tips/" className="nav-link">
+                <Link
+                  to="/categories/health-tips/"
+                  className="nav-link"
+                  activeStyle={{ borderBottom: "3px solid blue" }}
+                >
                   Health Tips
                 </Link>
                 <span className="nav-dot"></span>
               </li>
               <li className="nav-list-item">
-                <Link to="/categories/product-review/" className="nav-link">
+                <Link
+                  to="/categories/product-review/"
+                  className="nav-link"
+                  activeStyle={{ borderBottom: "3px solid blue" }}
+                >
                   Product Review
                 </Link>
                 <span className="nav-dot"></span>
@@ -92,19 +120,31 @@ const Header = () => {
               >
                 <ul className="nav-dots-wrap">
                   <li className="nav-list-item">
-                    <Link to="/categories/business/" className="nav-link">
+                    <Link
+                      to="/categories/business/"
+                      className="nav-link"
+                      activeStyle={{ borderBottom: "3px solid blue" }}
+                    >
                       Business
                     </Link>
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">
-                    <Link to="/categories/lifestyle/" className="nav-link">
+                    <Link
+                      to="/categories/lifestyle/"
+                      className="nav-link"
+                      activeStyle={{ borderBottom: "3px solid blue" }}
+                    >
                       Lifestyle
                     </Link>
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item" onClick={currentHandler}>
-                    <Link to="/categories/miscellaneous/" className="nav-link">
+                    <Link
+                      to="/categories/miscellaneous/"
+                      className="nav-link"
+                      activeStyle={{ borderBottom: "3px solid blue" }}
+                    >
                       Miscellaneous
                     </Link>
                     <span
@@ -114,7 +154,11 @@ const Header = () => {
                     ></span>
                   </li>
                   <li className="nav-list-item">
-                    <Link to="/authors/" className="nav-link">
+                    <Link
+                      to="/authors/"
+                      className="nav-link"
+                      activeStyle={{ borderBottom: "3px solid blue" }}
+                    >
                       Authors
                     </Link>
                     <span className="nav-dot"></span>
