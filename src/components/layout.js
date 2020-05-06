@@ -1,10 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 
 import Header from "./header"
-//import "./layout.css"
 import "./style.css"
 import blogbudz from "../images/blogbudz.svg"
 

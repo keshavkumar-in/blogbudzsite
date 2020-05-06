@@ -11,8 +11,7 @@ const Categories = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      <SEO title={category} keywords={[{ category }, `blog`, `react`]} />
-      {/* <h1>{categoryHeader}</h1> */}
+      <SEO title={category} keywords={[`${category}, category, blogbudz`]} />
       <div className="membership-plans membership-header section-profile is-cover">
         {catdata.map(({ node }) => {
           return (

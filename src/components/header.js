@@ -1,7 +1,17 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import blogbudz from "../images/blogbudz.svg"
+
 const Header = () => {
+  const [isActive, setActive] = useState(true)
+
+  const clickHandler = () => {
+    setActive(!isActive)
+  }
+  const [isCurrent, setCurrent] = useState(true)
+  const currentHandler = () => {
+    setCurrent(!isCurrent)
+  }
   return (
     <div className="section-header wrap">
       <header className="header-wrap flex">
@@ -34,7 +44,9 @@ const Header = () => {
                 <Link to="/categories/technology/" className="nav-link">
                   Technology
                 </Link>
-                <span className="nav-dot"></span>
+                <span
+                  className={"nav-dot" + (isCurrent ? "" : " nav-dot-current")}
+                ></span>
               </li>
               <li className="nav-list-item">
                 <Link to="/categories/coding/" className="nav-link">
@@ -61,8 +73,8 @@ const Header = () => {
                 <span className="nav-dot"></span>
               </li>
               <li className="nav-list-item">
-                <Link to="/categories/business/" className="nav-link">
-                  Business
+                <Link to="/categories/health-tips/" className="nav-link">
+                  Health Tips
                 </Link>
                 <span className="nav-dot"></span>
               </li>
@@ -72,56 +84,44 @@ const Header = () => {
                 </Link>
                 <span className="nav-dot"></span>
               </li>
-              <li className="nav-list-item">
-                <Link to="/categories/lifestyle/" className="nav-link">
-                  Lifestyle
-                </Link>
-                <span className="nav-dot"></span>
-              </li>
-              <li className="nav-list-item">
-                <Link to="/categories/miscellaneous/" className="nav-link">
-                  Miscellaneous
-                </Link>
-                <span className="nav-dot"></span>
-              </li>
-              {/*  <li className="nav-dots is-visible">
+              <li
+                className={
+                  "nav-dots is-visible" + (isActive ? "" : " is-active")
+                }
+                onClick={clickHandler}
+              >
                 <ul className="nav-dots-wrap">
                   <li className="nav-list-item">
-                    <Link to="/categories/miscellaneous/" className="nav-link">
-                      Miscellaneous
+                    <Link to="/categories/business/" className="nav-link">
+                      Business
                     </Link>
                     <span className="nav-dot"></span>
                   </li>
-                  <li class="nav-list-item">
-                    <a href="https://nurui.fueko.net/authors/" class="nav-link">
+                  <li className="nav-list-item">
+                    <Link to="/categories/lifestyle/" className="nav-link">
+                      Lifestyle
+                    </Link>
+                    <span className="nav-dot"></span>
+                  </li>
+                  <li className="nav-list-item" onClick={currentHandler}>
+                    <Link to="/categories/miscellaneous/" className="nav-link">
+                      Miscellaneous
+                    </Link>
+                    <span
+                      className={
+                        "nav-dot" + (isCurrent ? "" : " nav-dot-current")
+                      }
+                    ></span>
+                  </li>
+                  <li className="nav-list-item">
+                    <Link to="/authors/" className="nav-link">
                       Authors
-                    </a>
-                    <span class="nav-dot"></span>
-                  </li>
-                  <li class="nav-list-item">
-                    <a href="https://nurui.fueko.net/tags/" class="nav-link">
-                      Tags
-                    </a>
-                    <span class="nav-dot"></span>
-                  </li>
-                  <li class="nav-list-item">
-                    <a href="https://nurui.fueko.net/contact/" class="nav-link">
-                      Contact
-                    </a>
-                    <span class="nav-dot"></span>
-                  </li>
-                  <li class="nav-list-item">
-                    <a
-                      href="https://themeforest.net/item/nurui-multipurpose-ghost-blog-theme/22243886"
-                      class="nav-link"
-                    >
-                      Get Theme
-                    </a>
-                    <span class="nav-dot"></span>
+                    </Link>
+                    <span className="nav-dot"></span>
                   </li>
                 </ul>
               </li>
-             <li class="section-members-login-panel">
+              {/* <li class="section-members-login-panel">
                 <a
                   class="members-signin"
                   href="https://nurui.fueko.net/signin/"
