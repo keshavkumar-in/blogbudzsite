@@ -16,6 +16,7 @@ const AuthorPage = ({ data }) => {
           className="profile-wrap is-author"
           style={{
             backgroundImage: `url(${authoraHeader.file.url})`,
+            minHeight: "60vh",
           }}
         >
           <h1>Authors</h1>
