@@ -138,19 +138,19 @@ module.exports = {
                   description: excerpt.excerpt,
                   createdAt,
                   updatedAt,
-                  url: `${siteUrl}/ ${slug}`,
-                  guid: `${siteUrl}/ ${slug}`,
+                  url: `${siteUrl}/${slug}`,
+                  guid: `${siteUrl}/${slug}`,
                   author: `${author.name}`,
                   image: {
-                    url: `https:` + featuredImage.file.url,
+                    url: `https: + ${featuredImage.file.url}`,
                     title: featuredImage.title,
-                    link: `https:` + featuredImage.file.url,
+                    link: `https: + ${featuredImage.file.url}`,
                   },
                   custom_elements: [
                     { "content:encoded": content.childMarkdownRemark.html },
                   ],
-                  categories: categories.name,
-                  tags,
+                  category: [categories.name],
+                  tags: [tags],
                 })
               })
             },
