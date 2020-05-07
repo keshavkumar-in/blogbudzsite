@@ -135,11 +135,11 @@ module.exports = {
                 return Object.assign({}, edge.node, {
                   language: `en-us`,
                   title,
-                  description: excerpt,
+                  description: excerpt.excerpt,
                   createdAt,
                   updatedAt,
-                  url: siteUrl + slug,
-                  guid: siteUrl + slug,
+                  url: `${siteUrl}/ ${slug}`,
+                  guid: `${siteUrl}/ ${slug}`,
                   author: `${author.name}`,
                   image: {
                     url: `https:` + featuredImage.file.url,
