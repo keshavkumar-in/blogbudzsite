@@ -136,20 +136,20 @@ module.exports = {
                   language: `en-us`,
                   title,
                   description: excerpt.excerpt,
-                  createdAt,
-                  updatedAt,
+                  pubDate: createdAt,
+                  modifiedDate: updatedAt,
                   url: `${siteUrl}/${slug}`,
                   guid: `${siteUrl}/${slug}`,
                   author: `${author.name}`,
                   image: {
                     url: `https: + ${featuredImage.file.url}`,
-                    title: featuredImage.title,
+                    title: `${featuredImage.title}`,
                     link: `https: + ${featuredImage.file.url}`,
                   },
                   custom_elements: [
                     { "content:encoded": content.childMarkdownRemark.html },
                   ],
-                  category: [categories.name],
+                  category: `[${categories.name}]`,
                   tags: [tags],
                 })
               })
