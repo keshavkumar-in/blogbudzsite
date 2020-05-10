@@ -148,8 +148,6 @@ module.exports = {
                   custom_elements: [
                     { "content:encoded": content.childMarkdownRemark.html },
                   ],
-                  categories: [`${categories.name}`],
-                  tags: [tags],
                 })
               })
             },
