@@ -139,15 +139,16 @@ module.exports = {
                   date: createdAt,
                   url: `${siteUrl}/${slug}`,
                   guid: `${siteUrl}/${slug}`,
-                  image_url: `${featuredImage.file.url}`,
                   author: `${author.name}`,
                   enclosure: featuredImage && {
-                    url: siteUrl + featuredImage.file.url,
+                    url: "https:" + featuredImage.file.url,
                   },
+                  ttl: "60",
+                  copyright: "Blogbudz.com",
                   custom_elements: [
                     { "content:encoded": content.childMarkdownRemark.html },
                   ],
-                  category: [`${categories.name}`],
+                  categories: [`${categories.name}`],
                   tags: [tags],
                 })
               })
