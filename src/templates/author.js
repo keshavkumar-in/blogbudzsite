@@ -6,27 +6,33 @@ import SEO from "../components/seo"
 const Author = ({ pageContext, data }) => {
   const { author } = pageContext
   const { edges, totalCount } = data.allContentfulBlogPost
-  const authdata = data.allContentfulAuthor.edges
-
+  const { id, name, intro, image } = data.contentfulAuthor
   return (
     <Layout>
-      <SEO title={author} keywords={[`gatsby`, `application`, `react`]} />
+      <SEO
+        title={author}
+        description={intro.intro}
+        image={image.fluid.src}
+        keywords={[
+          `blogbudz`,
+          `blogging sites`,
+          `latest technology news`,
+          `${name}`,
+          `tech author`,
+          `blogbudz author`,
+        ]}
+      />
       <div className="membership-plans membership-header section-profile is-cover">
-        {authdata.map(({ node }) => {
-          return (
-            <div
-              className="profile-wrap is-cover"
-              style={{
-                backgroundImage: `url(${node.image.fluid.src})`,
-              }}
-              key={node.id}
-            >
-              <h1>{author}</h1>
-              <h5>{node.intro.intro}</h5>
-              <h2>{totalCount} Posts</h2>
-            </div>
-          )
-        })}
+        <div
+          className="profile-wrap is-cover"
+          style={{
+            backgroundImage: `url(${image.fluid.src})`,
+          }}
+        >
+          <h1>{author}</h1>
+          <h5>{intro.intro}</h5>
+          <h2>{totalCount} Posts</h2>
+        </div>
       </div>
       <div id="loop" className="section-loop wrap">
         <div className="items-wrap membership-cards flex">
@@ -114,19 +120,17 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulAuthor(filter: { name: { eq: $author } }, limit: 1) {
-      edges {
-        node {
-          id
-          intro {
-            intro
-          }
-          image {
-            fluid {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
+
+    contentfulAuthor(name: { eq: $author }) {
+      id
+      name
+      image {
+        fluid {
+          ...GatsbyContentfulFluid_withWebp
         }
+      }
+      intro {
+        intro
       }
     }
   }

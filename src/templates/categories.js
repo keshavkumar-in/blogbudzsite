@@ -7,27 +7,26 @@ import SEO from "../components/seo"
 const Categories = ({ pageContext, data }) => {
   const { category } = pageContext
   const { edges, totalCount } = data.allContentfulBlogPost
-  const catdata = data.allContentfulCategory.edges
-
+  const { id, name, intro, image } = data.contentfulCategory
   return (
     <Layout>
-      <SEO title={category} keywords={[`${category}, category, blogbudz`]} />
+      <SEO
+        title={category}
+        description={intro.intro}
+        image={image.fluid.src}
+        keywords={[`${name}, category, blogbudz`]}
+      />
       <div className="membership-plans membership-header section-profile is-cover">
-        {catdata.map(({ node }) => {
-          return (
-            <div
-              className="profile-wrap is-cover"
-              style={{
-                backgroundImage: `url(${node.image.fluid.src})`,
-              }}
-              key={node.id}
-            >
-              <h1>{category}</h1>
-              <h5>{node.intro.intro}</h5>
-              <h2>{totalCount} Posts</h2>
-            </div>
-          )
-        })}
+        <div
+          className="profile-wrap is-cover"
+          style={{
+            backgroundImage: `url(${image.fluid.src})`,
+          }}
+        >
+          <h1>{category}</h1>
+          <h5>{intro.intro}</h5>
+          <h2>{totalCount} Posts</h2>
+        </div>
       </div>
       <div id="loop" className="section-loop wrap">
         <div className="items-wrap membership-cards flex">
@@ -113,18 +112,15 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulCategory(filter: { name: { eq: $category } }, limit: 1) {
-      edges {
-        node {
-          id
-          intro {
-            intro
-          }
-          image {
-            fluid {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
+    contentfulCategory(name: { eq: $category }) {
+      id
+      name
+      intro {
+        intro
+      }
+      image {
+        fluid {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }

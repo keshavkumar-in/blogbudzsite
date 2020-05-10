@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== "production") {
 module.exports = {
   siteMetadata: {
     title: `Blogbudz`,
-    description: `An awesome blog displaying my awesome posts.`,
+    description: `Blogbudz covers the latest technology news. Popular & latest gadgets. We cover Coding stuff, Top Lists, Social Media updates, Product Reviews, How to. Get Business news, health tips, life style updates, much more. Latest mobile phones, tablets.`,
     author: `Blogbudz.com`,
     twitterHandle: `@geekykeshav`,
     siteUrl: `https://blogbudz.com`,
@@ -34,7 +34,6 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 960,
-              wrapperStyle: `margin-top: 25px, margin-bottom: 25px, border-radius: 29px`,
               withWebp: true,
               loading: `lazy`,
               linkImagesToOriginal: false,
@@ -81,7 +80,7 @@ module.exports = {
         // Setting a color is optional.
         color: `tomato`,
         // Disable the loading spinner.
-        showSpinner: true,
+        showSpinner: false,
       },
     },
     `gatsby-plugin-sitemap`,
@@ -125,10 +124,7 @@ module.exports = {
                     content,
                     excerpt,
                     featuredImage,
-                    tags,
                     createdAt,
-                    updatedAt,
-                    categories,
                     author,
                   },
                 } = edge
