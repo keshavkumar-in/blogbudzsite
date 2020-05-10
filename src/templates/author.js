@@ -19,6 +19,7 @@ const Author = ({ pageContext, data }) => {
               style={{
                 backgroundImage: `url(${node.image.fluid.src})`,
               }}
+              key={node.id}
             >
               <h1>{author}</h1>
               <h5>{node.intro.intro}</h5>
@@ -33,7 +34,7 @@ const Author = ({ pageContext, data }) => {
             return (
               <Link
                 to={`/${node.slug}/`}
-                className="membership-card"
+                className="membership-card flex"
                 key={node.id}
               >
                 <div className="membership-card-content">
@@ -116,6 +117,7 @@ export const pageQuery = graphql`
     allContentfulAuthor(filter: { name: { eq: $author } }, limit: 1) {
       edges {
         node {
+          id
           intro {
             intro
           }

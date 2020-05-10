@@ -72,7 +72,10 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 export const query = graphql`
   {
-    allContentfulCategory(filter: { name: { ne: "Uncategorized" } }) {
+    allContentfulCategory(
+      filter: { name: { ne: "Uncategorized" } }
+      sort: { fields: blog_post___updatedAt, order: DESC }
+    ) {
       edges {
         node {
           id
@@ -82,7 +85,7 @@ export const query = graphql`
           }
           image {
             fluid {
-              ...GatsbyContentfulFluid_withWebp
+              src
             }
           }
         }

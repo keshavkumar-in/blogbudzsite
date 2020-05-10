@@ -4594,7 +4594,8 @@ iframe {
   position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  max-width: 510px;
+  /* max-width: 510px; */
+  /* width: calc(50% - 30px); */
   margin: 15px;
   padding-bottom: 70px;
   -webkit-transition: -webkit-transform 0.2s ease;
@@ -4602,11 +4603,24 @@ iframe {
   transition: transform 0.2s ease;
   transition: transform 0.2s ease, -webkit-transform 0.2s ease;
   text-align: center;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 300px;
-  flex: 1 0 300px;
 }
 
+.membership-card {
+  min-width: 300px;
+  -webkit-box-flex: 999;
+  -ms-flex: 999 0 33.333%;
+  flex: 999 0 33.333%;
+}
+.membership-card:nth-child(7) {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 66.666%;
+  flex: 1 0 66.666%;
+}
+.membership-card:nth-child(3) {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 66.666%;
+  flex: 1 0 66.666%;
+}
 .membership-card:hover {
   -webkit-transform: translateY(-4px);
   transform: translateY(-4px);

@@ -92,7 +92,6 @@ const Header = () => {
                 </Link>
                 <span className="nav-dot"></span>
               </li>
-
               <li className="nav-list-item">
                 <Link
                   to="/categories/product-review/"
@@ -100,6 +99,16 @@ const Header = () => {
                   activeStyle={{ borderBottom: "3px solid blue" }}
                 >
                   Product Review
+                </Link>
+                <span className="nav-dot"></span>
+              </li>
+              <li className="nav-list-item">
+                <Link
+                  to="/categories/news/"
+                  className="nav-link"
+                  activeStyle={{ borderBottom: "3px solid blue" }}
+                >
+                  News
                 </Link>
                 <span className="nav-dot"></span>
               </li>
@@ -112,11 +121,11 @@ const Header = () => {
                 <ul className="nav-dots-wrap">
                   <li className="nav-list-item">
                     <Link
-                      to="/categories/news/"
+                      to="/categories/entertainment/"
                       className="nav-link"
                       activeStyle={{ borderBottom: "3px solid blue" }}
                     >
-                      News
+                      Entertainment
                     </Link>
                     <span className="nav-dot"></span>
                   </li>

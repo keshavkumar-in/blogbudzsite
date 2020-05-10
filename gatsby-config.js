@@ -143,8 +143,6 @@ module.exports = {
                   enclosure: featuredImage && {
                     url: "https:" + featuredImage.file.url,
                   },
-                  ttl: "60",
-                  copyright: "Blogbudz.com",
                   custom_elements: [
                     { "content:encoded": content.childMarkdownRemark.html },
                   ],
