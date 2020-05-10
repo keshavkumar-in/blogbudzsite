@@ -139,11 +139,10 @@ module.exports = {
                   date: createdAt,
                   url: `${siteUrl}/${slug}`,
                   guid: `${siteUrl}/${slug}`,
+                  image_url: `${featuredImage.file.url}`,
                   author: `${author.name}`,
-                  image: {
-                    url: `https:${featuredImage.file.url}`,
-                    title: `${featuredImage.title}`,
-                    link: `https:${featuredImage.file.url}`,
+                  enclosure: featuredImage && {
+                    url: siteUrl + featuredImage.file.url,
                   },
                   custom_elements: [
                     { "content:encoded": content.childMarkdownRemark.html },
