@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import defaultOpenGraphImage from "../images/blogbudz-icon.png"
-// import SchemaOrg from "./SchemaOrg"
 
 function SEO({
   description,
@@ -47,6 +46,10 @@ function SEO({
             content: metaDescription,
           },
           {
+            property: `image`,
+            content: ogImageUrl,
+          },
+          {
             property: `og:title`,
             content: title,
           },
@@ -61,6 +64,22 @@ function SEO({
           {
             property: `og:type`,
             content: isBlogPost ? `article` : `website`,
+          },
+          {
+            property: `og:image`,
+            content: ogImageUrl,
+          },
+          {
+            property: `og:image:width`,
+            content: "1200",
+          },
+          {
+            property: `og:image:height`,
+            content: "630",
+          },
+          {
+            property: `og:image:alt`,
+            content: title,
           },
           {
             name: `twitter:card`,
@@ -78,32 +97,13 @@ function SEO({
             name: `twitter:description`,
             content: metaDescription,
           },
-          {
-            property: `og:image`,
-            content: ogImageUrl,
-          },
-          {
-            property: `og:image:width`,
-            content: "1200",
-          },
-          {
-            property: `og:image:height`,
-            content: "630",
-          },
+
           {
             property: `twitter:image`,
             content: ogImageUrl,
           },
           {
-            property: `image`,
-            content: ogImageUrl,
-          },
-          {
-            property: "og:image:alt",
-            content: title,
-          },
-          {
-            property: "twitter:image:alt",
+            property: `twitter:image:alt`,
             content: title,
           },
         ]

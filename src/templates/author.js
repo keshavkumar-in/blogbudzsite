@@ -1,16 +1,19 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import kebabCase from "lodash/kebabCase"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Author = ({ pageContext, data }) => {
   const { author } = pageContext
   const { edges, totalCount } = data.allContentfulBlogPost
-  const { id, name, intro, image } = data.contentfulAuthor
+  const { name, intro, image } = data.contentfulAuthor
   return (
     <Layout>
       <SEO
         title={author}
+        url={`https://blogbudz.com/authors/${kebabCase(name)}`}
         description={intro.intro}
         image={image.fluid.src}
         keywords={[

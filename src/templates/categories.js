@@ -1,17 +1,20 @@
 import React from "react"
 // Components
 import { Link, graphql } from "gatsby"
+import kebabCase from "lodash/kebabCase"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Categories = ({ pageContext, data }) => {
   const { category } = pageContext
   const { edges, totalCount } = data.allContentfulBlogPost
-  const { id, name, intro, image } = data.contentfulCategory
+  const { name, intro, image } = data.contentfulCategory
   return (
     <Layout>
       <SEO
         title={category}
+        url={`https://blogbudz.com/categories/${kebabCase(name)}`}
         description={intro.intro}
         image={image.fluid.src}
         keywords={[`${name}, category, blogbudz`]}

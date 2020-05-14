@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { Disqus } from "gatsby-plugin-disqus"
 import kebabCase from "lodash/kebabCase"
 import Share from "../components/share"
-import { ArticleJsonLd } from "gatsby-plugin-next-seo"
+import { ArticleJsonLd, SpeakableJsonLd } from "gatsby-plugin-next-seo"
 
 const BlogPost = ({ pageContext, data }) => {
   const {
@@ -41,9 +41,6 @@ const BlogPost = ({ pageContext, data }) => {
         description={excerpt.excerpt}
         image={featuredImage.fluid.src}
         keywords={tags}
-        datePublished={createdAt}
-        dateModified={updatedAt}
-        author={author.name}
         isBlogPost
       />
       <ArticleJsonLd
@@ -60,6 +57,7 @@ const BlogPost = ({ pageContext, data }) => {
           "@type": "BlogPosting", // set's this as a blog post.
         }}
       />
+      <SpeakableJsonLd cssSelector={["#posttitle", "#post-wrap"]} />
       <article>
         <div className="section-featured is-featured-image">
           <div
@@ -91,7 +89,7 @@ const BlogPost = ({ pageContext, data }) => {
                   </Link>
                 ))}
               </div>
-              <h1 className="white">{title}</h1>
+              <h1 className="white posttitle">{title}</h1>
               <div className="item-meta white">
                 <span>by </span>
                 <Link to={`/authors/${kebabCase(author.name)}/`}>
