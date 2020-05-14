@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== "production") {
 module.exports = {
   siteMetadata: {
     title: `Blogbudz`,
-    description: `Blogbudz covers the latest technology news. Popular & latest gadgets. We cover Coding stuff, Top Lists, Social Media updates, Product Reviews, How to. Get Business news, health tips, life style updates, much more. Latest mobile phones, tablets.`,
+    description: `Blogbudz covers the latest tech news, Popular & latest gadgets, Coding, Top Lists, Social Media updates, Product Reviews, How to, Business news, health tips, lifestyle.`,
     author: `Blogbudz.com`,
     twitterHandle: `@geekykeshav`,
     siteUrl: `https://blogbudz.com`,
