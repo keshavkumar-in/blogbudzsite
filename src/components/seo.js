@@ -70,12 +70,28 @@ function SEO({ description, lang, meta, image, title, keywords, isBlogPost }) {
             content: ogImageUrl,
           },
           {
+            property: `og:image:width`,
+            content: "1200",
+          },
+          {
+            property: `og:image:height`,
+            content: "630",
+          },
+          {
             property: `twitter:image`,
             content: ogImageUrl,
           },
           {
             property: `image`,
             content: ogImageUrl,
+          },
+          {
+            property: "og:image:alt",
+            content: title,
+          },
+          {
+            property: "twitter:image:alt",
+            content: title,
           },
         ]
           .concat(
