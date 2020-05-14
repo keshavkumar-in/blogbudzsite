@@ -5,7 +5,16 @@ import { useStaticQuery, graphql } from "gatsby"
 import defaultOpenGraphImage from "../images/blogbudz-icon.png"
 // import SchemaOrg from "./SchemaOrg"
 
-function SEO({ description, lang, meta, image, title, keywords, isBlogPost }) {
+function SEO({
+  description,
+  lang,
+  meta,
+  image,
+  title,
+  keywords,
+  isBlogPost,
+  url,
+}) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -40,6 +49,10 @@ function SEO({ description, lang, meta, image, title, keywords, isBlogPost }) {
           {
             property: `og:title`,
             content: title,
+          },
+          {
+            property: `og:url`,
+            content: url,
           },
           {
             property: `og:description`,

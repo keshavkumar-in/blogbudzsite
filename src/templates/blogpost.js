@@ -37,6 +37,7 @@ const BlogPost = ({ pageContext, data }) => {
     <Layout>
       <SEO
         title={title}
+        url={`${siteUrl}/${slug}`}
         description={excerpt.excerpt}
         image={featuredImage.fluid.src}
         keywords={tags}
