@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import { Disqus } from "gatsby-plugin-disqus"
 import kebabCase from "lodash/kebabCase"
 import Share from "../components/share"
+import { ArticleJsonLd } from "gatsby-plugin-next-seo"
 
 const BlogPost = ({ pageContext, data }) => {
   const {
@@ -42,8 +43,21 @@ const BlogPost = ({ pageContext, data }) => {
         datePublished={createdAt}
         dateModified={updatedAt}
         author={author.name}
-        // pathname={`${siteUrl + slug}`}
         isBlogPost
+      />
+      <ArticleJsonLd
+        url={`https://blogbudz.com/${slug}`}
+        headline={title}
+        images={`https:${featuredImage.fluid.src}`}
+        datePublished={createdAt}
+        dateModified={updatedAt}
+        authorName={author.name}
+        publisherName="Blogbudz"
+        publisherLogo="https://blogbudz.com/icons/icon-512x512.png?v=978dc3d723376ac16e7d63f792e37824"
+        description={excerpt.excerpt}
+        overrides={{
+          "@type": "BlogPosting", // set's this as a blog post.
+        }}
       />
       <article>
         <div className="section-featured is-featured-image">
@@ -82,8 +96,7 @@ const BlogPost = ({ pageContext, data }) => {
                 <Link to={`/authors/${kebabCase(author.name)}/`}>
                   {author.name}
                 </Link>
-                ,{" "}
-                <span className="reading-time">
+                {/* <span className="reading-time">
                   <svg
                     role="img"
                     viewBox="0 0 24 24"
@@ -103,7 +116,7 @@ const BlogPost = ({ pageContext, data }) => {
                     ></path>
                   </svg>
                 </span>{" "}
-                <time dateTime={updatedAt}>{updatedAt}</time>
+                <time dateTime={updatedAt}>{`${updatedAt}`}</time> */}
               </div>
             </div>
           </div>
@@ -281,7 +294,7 @@ export const pageQuery = graphql`
       }
       tags
       createdAt(formatString: "")
-      updatedAt(fromNow: true)
+      updatedAt(formatString: "")
     }
   }
 `

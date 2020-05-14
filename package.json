@@ -1,9 +1,9 @@
 {
   "name": "blogbudz",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Blogbudz covers the latest tech news, Popular & latest gadgets, Coding, Top Lists, Social Media updates, Product Reviews, How to, Business news, health tips, lifestyle.",
   "version": "0.1.0",
-  "author": "Keshav Kumar, Kirs",
+  "author": "@blogbudz",
   "dependencies": {
     "dotenv": "^8.2.0",
     "gatsby": "^2.20.25",

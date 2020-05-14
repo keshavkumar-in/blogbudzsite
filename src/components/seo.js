@@ -3,21 +3,9 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import defaultOpenGraphImage from "../images/blogbudz-icon.png"
-import SchemaOrg from "./SchemaOrg"
+// import SchemaOrg from "./SchemaOrg"
 
-function SEO({
-  description,
-  lang,
-  meta,
-  image,
-  title,
-  keywords,
-  pathname,
-  isBlogPost,
-  author,
-  datePublished = false,
-  dateModified = false,
-}) {
+function SEO({ description, lang, meta, image, title, keywords, isBlogPost }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -63,7 +51,7 @@ function SEO({
           },
           {
             name: `twitter:card`,
-            content: `summary`,
+            content: `summary_large_image`,
           },
           {
             name: `twitter:creator`,
@@ -100,19 +88,6 @@ function SEO({
           )
           .concat(meta)}
       />
-      {/* <SchemaOrg
-        isBlogPost={isBlogPost}
-        url={pathname}
-        title={title}
-        image={ogImageUrl}
-        description={metaDescription}
-        datePublished={datePublished}
-        dateModified={dateModified}
-        canonicalUrl={pathname}
-        author={isBlogPost ? author : site.siteMetadata.author}
-        organization="Blogbudz.com"
-        defaultTitle={title}
-      /> */}
     </React.Fragment>
   )
 }
