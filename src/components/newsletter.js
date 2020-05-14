@@ -48,14 +48,14 @@ export default class Newsletter extends Component {
               Subscribe
             </button>
           </form>
-          <p className="subscribe-alert-loading">Processing your application</p>
+          {/* <p className="subscribe-alert-loading">Processing your application</p>
           <p className="subscribe-alert-error">
             There was an error sending the email, please try again
           </p>
           <div className="subscribe-success">
             <h3>Great!</h3>
             Check your inbox and click the link to confirm your subscription
-          </div>
+          </div> */}
         </div>
       </div>
     )
