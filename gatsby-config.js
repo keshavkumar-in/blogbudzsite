@@ -64,6 +64,7 @@ module.exports = {
       options: {
         spaceId: `k2bz2774lau9`,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        GATSBY_CONTENTFUL_OFFLINE=true
       },
     },
     {
