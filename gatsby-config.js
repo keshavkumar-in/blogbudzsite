@@ -60,6 +60,18 @@ module.exports = {
     },
     `gatsby-plugin-next-seo`,
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "UA-166951398-1",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true,
+        // Defers execution of google analytics script after page load
+        defer: true,
+        cookieDomain: "blogbudz.com",
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `k2bz2774lau9`,
