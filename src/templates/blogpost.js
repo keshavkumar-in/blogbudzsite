@@ -94,8 +94,8 @@ const BlogPost = ({ pageContext, data }) => {
                 <span>by </span>
                 <Link to={`/authors/${kebabCase(author.name)}/`}>
                   {author.name}
-                </Link>
-                {/* <span className="reading-time">
+                </Link>{" "}
+                <span className="reading-time">
                   <svg
                     role="img"
                     viewBox="0 0 24 24"
@@ -115,7 +115,11 @@ const BlogPost = ({ pageContext, data }) => {
                     ></path>
                   </svg>
                 </span>{" "}
-                <time dateTime={updatedAt}>{`${updatedAt}`}</time> */}
+                <time
+                  dateTime={content.childMarkdownRemark.fields.readingTime.text}
+                >
+                  {content.childMarkdownRemark.fields.readingTime.text}
+                </time>
               </div>
             </div>
           </div>
@@ -270,6 +274,11 @@ export const pageQuery = graphql`
       content {
         childMarkdownRemark {
           html
+          fields {
+            readingTime {
+              text
+            }
+          }
         }
       }
       categories {
