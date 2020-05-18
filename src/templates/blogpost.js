@@ -21,6 +21,7 @@ const BlogPost = ({ pageContext, data }) => {
     author,
     createdAt,
   } = data.contentfulBlogPost
+  const updatedDate = data.updatedDate.updatedAt
   const {
     site: {
       siteMetadata: { siteUrl, twitterHandle },
@@ -94,7 +95,9 @@ const BlogPost = ({ pageContext, data }) => {
                 <span>by </span>
                 <Link to={`/authors/${kebabCase(author.name)}/`}>
                   {author.name}
-                </Link>{" "}
+                </Link>
+                <br />
+                <time datetime={updatedDate}>{updatedDate}</time>
                 <span className="reading-time">
                   <svg
                     role="img"
@@ -113,13 +116,9 @@ const BlogPost = ({ pageContext, data }) => {
                       d="M13.2928932,9.29289322 C13.6834175,8.90236893 14.3165825,8.90236893 14.7071068,9.29289322 C15.0976311,9.68341751 15.0976311,10.3165825 14.7071068,10.7071068 L10.897876,14.5163376 C10.5073517,14.9068618 9.87418674,14.9068618 9.48366245,14.5163376 C9.09313816,14.1258133 9.09313816,13.4926483 9.48366245,13.102124 L13.2928932,9.29289322 Z"
                       id="Line"
                     ></path>
-                  </svg>
-                </span>{" "}
-                <time
-                  dateTime={content.childMarkdownRemark.fields.readingTime.text}
-                >
+                  </svg>{" "}
                   {content.childMarkdownRemark.fields.readingTime.text}
-                </time>
+                </span>
               </div>
             </div>
           </div>
@@ -303,6 +302,9 @@ export const pageQuery = graphql`
       tags
       createdAt(formatString: "")
       updatedAt(formatString: "")
+    }
+    updatedDate: contentfulBlogPost(slug: { eq: $slug }) {
+      updatedAt(fromNow: true)
     }
   }
 `

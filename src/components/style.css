@@ -1669,7 +1669,7 @@ br + .global-button {
   padding-top: 60px;
 }
 .item-meta .reading-time {
-  font-size: 10px;
+  font-size: 12px;
   display: inline-block;
   margin-top: 9px;
   letter-spacing: 1.5px;

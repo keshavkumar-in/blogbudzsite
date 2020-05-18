@@ -42,7 +42,7 @@ module.exports = {
           `gatsby-remark-reading-time`,
           {
             resolve: `gatsby-remark-prismjs`,
-            options: {},
+            options: { showLineNumbers: true },
           },
         ],
       },
