@@ -8,7 +8,7 @@ module.exports = {
     title: `Blogbudz`,
     description: `Blogbudz covers the latest tech news, Popular & latest gadgets, Coding, Top Lists, Social Media updates, Product Reviews, How to, Business news, health tips, lifestyle.`,
     author: `Blogbudz.com`,
-    twitterHandle: `@geekykeshav`,
+    twitterHandle: `@blogbudz`,
     siteUrl: `https://blogbudz.com`,
     organization: `Blogbudz.com`,
   },
