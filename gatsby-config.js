@@ -39,11 +39,11 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
-          `gatsby-remark-reading-time`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {},
           },
+          `gatsby-remark-reading-time`,
         ],
       },
     },
