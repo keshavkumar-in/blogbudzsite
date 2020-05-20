@@ -250,7 +250,9 @@ const BlogPost = ({ pageContext, data }) => {
           )}
         </div>
       </aside>
-      <Disqus config={disqusConfig} />
+      <div class="section-disqus">
+        <Disqus config={disqusConfig} />
+      </div>
     </Layout>
   )
 }
