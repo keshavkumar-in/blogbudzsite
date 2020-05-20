@@ -41,7 +41,7 @@
     #ff9900 50%,
     #ff990054 100%
   );
-  background: linear-gradient(left, #edd4b3 0%, #ff9900 50%, #ff990054 100%);
+  background: linear-gradient(toRight, #edd4b3 0%, #ff9900 50%, #ff990054 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1);
 }
 :root {
@@ -3151,6 +3151,17 @@ iframe {
 .page-tags-title,
 .page-authors-title {
   width: 100%;
+  margin-bottom: 40px;
+}
+.page-tags-title h1 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-primary-bold);
+  display: block;
+  margin: 15px 10px 0;
+  padding: 4px 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
 }
 .page-tags-title h4,
 .page-authors-title h4 {

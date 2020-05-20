@@ -10,7 +10,21 @@ const AuthorPage = ({ data }) => {
   const authoraHeader = data.contentfulAsset
   return (
     <Layout>
-      <SEO title="All Authors" />
+      <SEO
+        title="All Authors"
+        keywords={[
+          `blogbudz`,
+          `authors`,
+          `blog`,
+          `technology blog`,
+          `social media blog`,
+          `lifestyle blog`,
+          `latest news`,
+          `business blog`,
+          `entertainment blog`,
+        ]}
+        description="All Authors - Blogbudz. Blogbudz covers the latest tech news, Popular & latest gadgets, Coding, Top Lists, Social Media updates, Product Reviews, How to, Business news, health tips, lifestyle."
+      />
       <div className="membership-plans membership-header section-profile is-cover">
         <div
           className="profile-wrap is-author"

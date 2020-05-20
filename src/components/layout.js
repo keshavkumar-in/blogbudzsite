@@ -43,28 +43,19 @@ const Layout = ({ children }) => {
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">
-                    <a
-                      href="https://nurui.fueko.net/features/"
-                      className="nav-link"
-                    >
+                    <a href="/" className="nav-link">
                       Features
                     </a>
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">
-                    <a
-                      href="https://nurui.fueko.net/style-guide/"
-                      className="nav-link"
-                    >
+                    <a href="/" className="nav-link">
                       Sitemap
                     </a>
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">
-                    <a
-                      href="https://nurui.fueko.net/contact/"
-                      className="nav-link"
-                    >
+                    <a href="/" className="nav-link">
                       Privacy Policy
                     </a>
                     <span className="nav-dot"></span>
@@ -72,7 +63,10 @@ const Layout = ({ children }) => {
                 </ul>
               </div>
               <div className="footer-social-links flex">
-                <a href="https://twitter.com/ghost" aria-label="link Twitter">
+                <a
+                  href="https://twitter.com/blogbudz"
+                  aria-label="link Twitter"
+                >
                   <svg
                     className="global-svg"
                     role="img"

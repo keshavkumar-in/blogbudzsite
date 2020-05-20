@@ -66,7 +66,7 @@ function SEO({
             content: isBlogPost ? `article` : `website`,
           },
           {
-            property: `og:image`,
+            property: `og:image:secure_url`,
             content: ogImageUrl,
           },
           {

@@ -13,12 +13,23 @@ const CategoryPage = ({ data }) => {
     <Layout>
       <SEO
         title="All Categories"
-        keywords={[`gatsby`, `application`, `react`]}
+        keywords={[
+          `blogbudz`,
+          `categories`,
+          `blog`,
+          `technology blog`,
+          `social media blog`,
+          `lifestyle blog`,
+          `latest news`,
+          `business blog`,
+          `entertainment blog`,
+        ]}
+        description="All Categories - Blogbudz. Blogbudz covers the latest tech news, Popular & latest gadgets, Coding, Top Lists, Social Media updates, Product Reviews, How to, Business news, health tips, lifestyle."
       />
       <div class="section-page-tags wrap">
         <div class="page-tags-wrap flex">
           <div class="page-tags-title">
-            <h4>Our top categories</h4>
+            <h1>Our top categories</h1>
           </div>
           {categoryData.map(category => (
             <div class="page-tag-wrap top is-image" key={category.node.name}>

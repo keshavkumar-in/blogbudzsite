@@ -8,10 +8,7 @@ const Header = () => {
   const clickHandler = () => {
     setActive(!isActive)
   }
-  const [isCurrent, setCurrent] = useState(true)
-  const currentHandler = () => {
-    setCurrent(!isCurrent)
-  }
+
   return (
     <div className="section-header wrap">
       <header className="header-wrap flex">
@@ -48,9 +45,7 @@ const Header = () => {
                 >
                   Technology
                 </Link>
-                <span
-                  className={"nav-dot" + (isCurrent ? "" : " nav-dot-current")}
-                ></span>
+                <span className="nav-dot"></span>
               </li>
               <li className="nav-list-item">
                 <Link
@@ -117,6 +112,7 @@ const Header = () => {
                   "nav-dots is-visible" + (isActive ? "" : " is-active")
                 }
                 onClick={clickHandler}
+                onKeyDown={clickHandler}
               >
                 <ul className="nav-dots-wrap">
                   <li className="nav-list-item">
@@ -159,7 +155,7 @@ const Header = () => {
                     </Link>
                     <span className="nav-dot"></span>
                   </li>
-                  <li className="nav-list-item" onClick={currentHandler}>
+                  <li className="nav-list-item">
                     <Link
                       to="/categories/miscellaneous/"
                       className="nav-link"
@@ -167,11 +163,7 @@ const Header = () => {
                     >
                       Miscellaneous
                     </Link>
-                    <span
-                      className={
-                        "nav-dot" + (isCurrent ? "" : " nav-dot-current")
-                      }
-                    ></span>
+                    <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">
                     <Link
