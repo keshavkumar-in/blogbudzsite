@@ -25,6 +25,30 @@ const IndexPage = ({ data }) => {
       <Slider />
       <div id="loop" className="section-loop wrap is-featured">
         <div className="items-wrap flex">
+          <div class="item-wrap flex post tag-story tag-hash-orange tag-hash-post-orange tag-hash-cta-violet no-image">
+            <article>
+              <a
+                href="https://coronalivestatus.info/"
+                class="item-link-overlay"
+                aria-label="The future of architecture is culture"
+                target="_blank"
+                rel="noopener noreferrer"
+              ></a>
+              <h2>
+                <a
+                  href="https://coronalivestatus.info/"
+                  class="white"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  COVID - 19 TRACKER INDIA
+                </a>
+              </h2>
+              <div className="item-meta white is-primary-tag is-members-label">
+                State &amp; District wise live COVID-19 Status Tracker in India
+              </div>
+            </article>
+          </div>
           {category.map(edge => (
             <div className="item-wrap flex is-image" key={edge.node.id}>
               <article>

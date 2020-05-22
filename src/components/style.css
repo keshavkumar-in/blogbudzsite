@@ -2038,6 +2038,16 @@ br + .global-button {
   -ms-flex: 1 0 66.666%;
   flex: 1 0 66.666%;
 }
+.item-wrap:nth-child(8) {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 66.666%;
+  flex: 1 0 66.666%;
+}
+.item-wrap:nth-child(12) {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 66.666%;
+  flex: 1 0 66.666%;
+}
 .item-wrap.tag-hash-large {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 66.666%;
