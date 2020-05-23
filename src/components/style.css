@@ -28,6 +28,7 @@
     transparent 75%,
     transparent
   );
+
   background: -moz-linear-gradient(
     left,
     #edd4b3 0%,
@@ -174,6 +175,7 @@
   color: white;
   font-size: 12px;
 }
+
 /* Share Button CSS Start */
 .post-social .button {
   margin: 0rem 1rem;

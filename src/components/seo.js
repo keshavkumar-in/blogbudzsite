@@ -50,6 +50,10 @@ function SEO({
             content: ogImageUrl,
           },
           {
+            property: `og:site_name`,
+            content: "Blogbudz",
+          },
+          {
             property: `og:title`,
             content: title,
           },
@@ -66,7 +70,7 @@ function SEO({
             content: isBlogPost ? `article` : `website`,
           },
           {
-            property: `og:image:secure_url`,
+            property: `og:image`,
             content: ogImageUrl,
           },
           {

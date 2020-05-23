@@ -43,21 +43,21 @@ const Layout = ({ children }) => {
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">
-                    <a href="/" className="nav-link">
-                      Tags
-                    </a>
-                    <span className="nav-dot"></span>
-                  </li>
-                  <li className="nav-list-item">
                     <Link to="/contact/" className="nav-link">
                       Contact
                     </Link>
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">
-                    <a href="/" className="nav-link">
+                    <Link to="/sitemap/" className="nav-link">
+                      Sitemap
+                    </Link>
+                    <span className="nav-dot"></span>
+                  </li>
+                  <li className="nav-list-item">
+                    <Link to="/" className="nav-link">
                       Privacy Policy
-                    </a>
+                    </Link>
                     <span className="nav-dot"></span>
                   </li>
                 </ul>
