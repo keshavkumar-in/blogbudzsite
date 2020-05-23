@@ -37,21 +37,21 @@ const Layout = ({ children }) => {
               <div className="footer-nav">
                 <ul className="nav-list">
                   <li className="nav-list-item">
-                    <Link to="/authors" className="nav-link">
+                    <Link to="/authors/" className="nav-link">
                       Authors
                     </Link>
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">
                     <a href="/" className="nav-link">
-                      Features
+                      Tags
                     </a>
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">
-                    <a href="/" className="nav-link">
-                      Sitemap
-                    </a>
+                    <Link to="/contact/" className="nav-link">
+                      Contact
+                    </Link>
                     <span className="nav-dot"></span>
                   </li>
                   <li className="nav-list-item">

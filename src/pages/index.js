@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
             <article>
               <a
                 href="https://coronalivestatus.info/"
-                class="item-link-overlay"
+                className="item-link-overlay"
                 aria-label="The future of architecture is culture"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -41,11 +41,11 @@ const IndexPage = ({ data }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  COVID - 19 TRACKER INDIA
+                  COVID - 19 Cases Tracker INDIA
                 </a>
               </h2>
               <div className="item-meta white is-primary-tag is-members-label">
-                State &amp; District wise live COVID-19 Status Tracker in India
+                State &amp; District wise live COVID-19 Cases Tracker in India
               </div>
             </article>
           </div>

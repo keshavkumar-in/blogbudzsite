@@ -175,6 +175,16 @@ const Header = () => {
                     </Link>
                     <span className="nav-dot"></span>
                   </li>
+                  <li className="nav-list-item">
+                    <Link
+                      to="/contact/"
+                      className="nav-link"
+                      activeStyle={{ borderBottom: "3px solid blue" }}
+                    >
+                      Contact
+                    </Link>
+                    <span className="nav-dot"></span>
+                  </li>
                 </ul>
               </li>
               {/* <li class="section-members-login-panel">
