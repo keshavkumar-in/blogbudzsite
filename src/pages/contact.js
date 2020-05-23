@@ -52,7 +52,7 @@ export default class Contact extends Component {
           ></div>
           <div className="page-custom-wrap">
             <div className="page-custom-header">
-              <a href="https://blogbudz.com">Back to Homepage</a>
+              <Link to="/">Back to Homepage</Link>
             </div>
             <div className="page-custom-content flex">
               <div className="subscribe-wrap contact-wrap">
