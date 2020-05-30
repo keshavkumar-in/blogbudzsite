@@ -21,6 +21,7 @@ const BlogPost = ({ pageContext, data }) => {
     author,
     createdAt,
   } = data.contentfulBlogPost
+  const ogImage = data.ogImage.featuredImage
   const updatedDate = data.updatedDate.updatedAt
   const {
     site: {
@@ -40,7 +41,7 @@ const BlogPost = ({ pageContext, data }) => {
         title={title}
         url={`${siteUrl}/${slug}`}
         description={excerpt.excerpt}
-        image={featuredImage.fluid.src}
+        image={ogImage.fixed.src}
         keywords={tags}
         isBlogPost
       />
@@ -304,6 +305,13 @@ export const pageQuery = graphql`
       tags
       createdAt(formatString: "")
       updatedAt(formatString: "")
+    }
+    ogImage: contentfulBlogPost(slug: { eq: $slug }) {
+      featuredImage {
+        fixed(width: 256, height: 256) {
+          src
+        }
+      }
     }
     updatedDate: contentfulBlogPost(slug: { eq: $slug }) {
       updatedAt(fromNow: true)
