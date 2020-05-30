@@ -11,6 +11,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO
         title="Blogbudz"
+        url="https://blogbudz.com/"
         keywords={[
           `blogbudz`,
           `blog`,
