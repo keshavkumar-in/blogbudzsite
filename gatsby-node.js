@@ -34,6 +34,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             author {
               name
             }
+            featuredImage {
+              fluid {
+                src
+              }
+            }
           }
         }
       }

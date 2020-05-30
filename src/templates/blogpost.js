@@ -29,7 +29,6 @@ const BlogPost = ({ pageContext, data }) => {
     },
   } = data
   const { prev, next } = pageContext
-
   let disqusConfig = {
     url: `${siteUrl}/${slug}`,
     identifier: id,
@@ -225,26 +224,33 @@ const BlogPost = ({ pageContext, data }) => {
       <aside className="section-prev-next">
         <div className="prev-next-wrap">
           {prev && (
-            <Link
-              to={`/${prev.slug}/`}
-              className="prev-post post
-            tag-story tag-hash-orange tag-hash-post-orange tag-hash-cta-violet
-            no-image"
-            >
+            <Link to={`/${prev.slug}/`} className="prev-post post is-image">
+              <div
+                class="prev-next-image"
+                style={{
+                  backgroundImage: `url(
+                    ${prev.featuredImage.fluid.src}
+                  )`,
+                }}
+              ></div>
               <section className="prev-next-title">
-                <h5>Previous Post</h5>
+                <h5>Newer Post</h5>
                 <h3>{prev.title}</h3>
-                {/* <img src={prev.featuredImage.fluid.src} alt="..." /> */}
               </section>
             </Link>
           )}
           {next && (
-            <Link
-              to={`/${next.slug}/`}
-              className="next-post post tag-people tag-journey no-image"
-            >
+            <Link to={`/${next.slug}/`} className="next-post post is-image">
+              <div
+                class="prev-next-image"
+                style={{
+                  backgroundImage: `url(
+                    ${next.featuredImage.fluid.src}
+                  )`,
+                }}
+              ></div>
               <section className="prev-next-title">
-                <h5>Next Post</h5>
+                <h5>Older Post</h5>
                 <h3>{next.title}</h3>
               </section>
             </Link>
