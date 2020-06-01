@@ -75,16 +75,20 @@ function SEO({
             content: ogImageUrl,
           },
           {
+            property: `og:image:secure_url`,
+            content: ogImageUrl,
+          },
+          {
             property: `og:image:type`,
             content: `image/png`,
           },
           {
             property: `og:image:width`,
-            content: "300",
+            content: "1200",
           },
           {
             property: `og:image:height`,
-            content: "300",
+            content: "628",
           },
           {
             property: `og:image:alt`,
