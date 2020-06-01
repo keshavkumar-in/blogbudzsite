@@ -76,6 +76,7 @@ function SEO({
           },
           {
             property: `og:image:secure_url`,
+            itemprop: `image`,
             content: ogImageUrl,
           },
           {

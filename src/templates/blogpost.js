@@ -324,7 +324,7 @@ export const pageQuery = graphql`
     }
     ogImage: contentfulBlogPost(slug: { eq: $slug }) {
       featuredImage {
-        fixed(width: 256, height: 256) {
+        fixed(width: 300, height: 300) {
           src
         }
       }
