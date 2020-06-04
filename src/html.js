@@ -13,6 +13,7 @@ export default function HTML(props) {
         />
         {props.headComponents}
         <script
+          async
           data-name="BMC-Widget"
           src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
           data-id="blogbudz"
