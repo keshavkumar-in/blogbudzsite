@@ -97,7 +97,7 @@ const BlogPost = ({ pageContext, data }) => {
                   {author.name}
                 </Link>
                 <br />
-                <time datetime={updatedDate}>{updatedDate}</time>
+                <time dateTime={updatedDate}>{updatedDate}</time>
                 <span className="reading-time">
                   <svg
                     role="img"
@@ -236,7 +236,7 @@ const BlogPost = ({ pageContext, data }) => {
           {prev && (
             <Link to={`/${prev.slug}/`} className="prev-post post is-image">
               <div
-                class="prev-next-image"
+                className="prev-next-image"
                 style={{
                   backgroundImage: `url(
                     ${prev.featuredImage.fluid.src}
@@ -252,7 +252,7 @@ const BlogPost = ({ pageContext, data }) => {
           {next && (
             <Link to={`/${next.slug}/`} className="next-post post is-image">
               <div
-                class="prev-next-image"
+                className="prev-next-image"
                 style={{
                   backgroundImage: `url(
                     ${next.featuredImage.fluid.src}
@@ -267,7 +267,7 @@ const BlogPost = ({ pageContext, data }) => {
           )}
         </div>
       </aside>
-      <div class="section-disqus">
+      <div className="section-disqus">
         <Disqus config={disqusConfig} />
       </div>
     </Layout>

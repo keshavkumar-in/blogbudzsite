@@ -130,7 +130,9 @@ function SEO({
               : []
           )
           .concat(meta)}
-      />
+      >
+        <link rel="canonical" href={`${url}`} />
+      </Helmet>
     </React.Fragment>
   )
 }
