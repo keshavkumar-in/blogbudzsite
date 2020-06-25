@@ -45,6 +45,19 @@
   background: linear-gradient(toRight, #edd4b3 0%, #ff9900 50%, #ff990054 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1);
 }
+.iframe-container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
+}
+.iframe-container iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 :root {
   --font-family-primary: "Noto Sans", sans-serif;
   --font-weight-primary-regular: 400;
