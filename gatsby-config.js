@@ -27,7 +27,6 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-reading-time`,
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
@@ -59,7 +58,6 @@ module.exports = {
         icon: `src/images/blogbudz-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-next-seo`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -75,7 +73,7 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `k2bz2774lau9`,
+        spaceId: process.env.CONTENTFUL_SPACE_ID || `k2bz2774lau9`,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         host: process.env.CONTENTFUL_HOST || "cdn.contentful.com",
       },
