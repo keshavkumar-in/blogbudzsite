@@ -59,15 +59,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: `UA-166951398-1`,
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
-        // Defers execution of google analytics script after page load
-        defer: true,
-        cookieDomain: `blogbudz.com`,
+        trackingIds: [`UA-166951398-1`],
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+          // Setting this parameter is also optional
+          respectDNT: true,
+        },
       },
     },
     {
@@ -158,7 +160,7 @@ module.exports = {
             // query to get blog post data
             query: `
             {
-              allContentfulBlogPost(sort: {order: DESC, fields: updatedAt}) {
+              allContentfulBlogPost(sort: {updatedAt: DESC}) {
                 edges {
                   node {
                     id
